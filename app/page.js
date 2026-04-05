@@ -83,7 +83,6 @@ async function doExportReport(prop, data) {
   const bc = data.buildingCharacteristics || {};
   const gs = data.governingStructure || {};
   const { default: jsPDF } = await import("jspdf");
-  await import("jspdf-autotable");
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "letter" });
   const W = doc.internal.pageSize.getWidth();
   const M = 18;
@@ -131,20 +130,26 @@ async function doExportReport(prop, data) {
 
   // === 1. PROPERTY OVERVIEW ===
   sectionTitle("1", "Property Overview");
-  doc.autoTable({
-    startY: y, margin: { left: M, right: M }, theme: "plain",
-    styles: { fontSize: 9, cellPadding: { top: 2, bottom: 2, left: 4, right: 4 }, textColor: [30, 41, 59] },
-    headStyles: { fillColor: [241, 245, 249], textColor: [100, 116, 139], fontStyle: "bold", fontSize: 7.5 },
-    body: [
-      ["Address", prop.normalized, "ZIP Code", prop.zip],
-      ["State", prop.state, "County", prop.county],
-      ["City", prop.city, "Borough", prop.borough !== "N/A" ? prop.borough : "N/A"],
-      ["Year Built", bc.yearBuilt || "N/A", "Building Age", bc.estimatedAge ? bc.estimatedAge + " years" : "N/A"],
-      ["Coordinates", prop.lat + ", " + prop.lng, "Data Confidence", bc.confidence || "N/A"],
-    ],
-    columnStyles: { 0: { fontStyle: "bold", cellWidth: 30 }, 1: { cellWidth: 58 }, 2: { fontStyle: "bold", cellWidth: 30 }, 3: { cellWidth: 58 } },
+  const propRows = [
+    ["Address", prop.normalized, "ZIP Code", prop.zip],
+    ["State", prop.state, "County", prop.county],
+    ["City", prop.city, "Borough", prop.borough !== "N/A" ? prop.borough : "N/A"],
+    ["Year Built", bc.yearBuilt || "N/A", "Building Age", bc.estimatedAge ? bc.estimatedAge + " years" : "N/A"],
+    ["Coordinates", prop.lat + ", " + prop.lng, "Data Confidence", bc.confidence || "N/A"],
+  ];
+  propRows.forEach(row => {
+    checkPage(8);
+    doc.setFillColor(248, 250, 252); doc.rect(M, y - 3.5, CW, 7, "F");
+    doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+    doc.text(row[0].toUpperCase(), M + 2, y);
+    doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
+    doc.text(String(row[1]), M + 35, y);
+    doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+    doc.text(row[2].toUpperCase(), M + CW / 2 + 2, y);
+    doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
+    doc.text(String(row[3]), M + CW / 2 + 35, y);
+    y += 7;
   });
-  y = doc.lastAutoTable.finalY + 4;
 
   // === 2. INVESTMENT SUMMARY ===
   sectionTitle("2", "Investment Summary");
