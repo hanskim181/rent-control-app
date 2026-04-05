@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import { resolve } from 'path';
-config({ path: resolve(process.cwd(), '.env.local') });
+config({ path: resolve(process.cwd(), '.env.local'), processEnv: process.env });
 
 import Anthropic from "@anthropic-ai/sdk";
 
