@@ -1,7 +1,5 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 
 const bC = (b) => {
   const m = {
@@ -80,10 +78,12 @@ async function analyze(prop) {
   return data;
 }
 
-function doExportReport(prop, data) {
+async function doExportReport(prop, data) {
   const fa = data.finalApplicability || {};
   const bc = data.buildingCharacteristics || {};
   const gs = data.governingStructure || {};
+  const { default: jsPDF } = await import("jspdf");
+  await import("jspdf-autotable");
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "letter" });
   const W = doc.internal.pageSize.getWidth();
   const M = 18;
