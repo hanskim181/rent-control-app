@@ -252,6 +252,7 @@ export default function Home() {
     setPhase("geo"); setStep(0);
     let geo;
     try { geo = await geocode(addr); setProp(geo); } catch (e) { setError(e.message); setLoading(false); setPhase(null); return; }
+    await new Promise(res => setTimeout(res, 3000));
     setPhase("analysis"); startSteps();
     try { const d = await analyze(geo); setData(d); } catch (e) { setError(e.message); }
     if (stepRef.current) clearInterval(stepRef.current);

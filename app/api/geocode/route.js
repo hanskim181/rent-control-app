@@ -8,8 +8,6 @@ const GEO_SYS =
   'You are a US address normalization engine. Return ONLY valid JSON: {"normalized":"full address","zip":"5-digit ZIP","state":"state name","county":"county","city":"city","borough":"borough or N/A","municipality":"municipality or N/A","lat":"lat 4dec","lng":"lon 4dec","valid":true/false,"errorMessage":"if invalid"}';
 
 export async function POST(request) {
-  console.log("API KEY exists:", !!process.env.ANTHROPIC_API_KEY);
-  console.log("API KEY value:", process.env.ANTHROPIC_API_KEY?.substring(0, 15) + "...");
   try {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     const { address } = await request.json();

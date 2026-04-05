@@ -31,33 +31,44 @@ Rules:
 - Label sources Official, Legal/Policy, or Secondary`;
 
 export async function POST(request) {
-  try {
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-    const { property } = await request.json();
-    if (!property) {
-      return Response.json({ error: "Property data is required" }, { status: 400 });
+  const { property } = await request.json();
+  if (!property) {
+    return Response.json({ error: "Property data is required" }, { status: 400 });
+  }
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const msg = "Analyze rent control for: Address: " + property.normalized + " | ZIP: " + property.zip + " | State: " + property.state + " | County: " + property.county + " | City: " + property.city + " | Borough: " + (property.borough !== "N/A" ? property.borough : "N/A") + " | Coords: " + property.lat + ", " + property.lng + "\n\nResearch: (1) year built, (2) current rent control at each layer, (3) governing structure, (4) age-based applicability, (5) pending legislation past 12mo, (6) synthesize final applicability with underwriting rent growth formula and investment implications.\nReturn ONLY JSON.";
+
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await client.messages.create({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 16000,
+        system: ANA_SYS,
+        messages: [{ role: "user", content: msg }],
+        tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 15 }],
+      });
+      const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
+      const clean = text.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+      const match = clean.match(/\{[\s\S]*\}/);
+      if (!match) {
+        return Response.json({ error: "No valid JSON in API response" }, { status: 500 });
+      }
+      const parsed = JSON.parse(match[0]);
+      if (!parsed.rentControl || !parsed.finalApplicability) {
+        return Response.json({ error: "Incomplete analysis structure" }, { status: 500 });
+      }
+      return Response.json(parsed);
+    } catch (err) {
+      if (err.status === 429 && attempt < 2) {
+        await new Promise(res => setTimeout(res, 20000));
+        continue;
+      }
+      if (attempt < 2 && !err.status) {
+        await new Promise(res => setTimeout(res, 10000));
+        continue;
+      }
+      console.error("Analysis error:", err);
+      return Response.json({ error: "Analysis failed: " + err.message }, { status: 500 });
     }
-    const msg = "Analyze rent control for: Address: " + property.normalized + " | ZIP: " + property.zip + " | State: " + property.state + " | County: " + property.county + " | City: " + property.city + " | Borough: " + (property.borough !== "N/A" ? property.borough : "N/A") + " | Coords: " + property.lat + ", " + property.lng + "\n\nResearch: (1) year built, (2) current rent control at each layer, (3) governing structure, (4) age-based applicability, (5) pending legislation past 12mo, (6) synthesize final applicability with underwriting rent growth formula and investment implications.\nReturn ONLY JSON.";
-    const response = await client.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 16000,
-      system: ANA_SYS,
-      messages: [{ role: "user", content: msg }],
-      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 15 }],
-    });
-    const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
-    const clean = text.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
-    const match = clean.match(/\{[\s\S]*\}/);
-    if (!match) {
-      return Response.json({ error: "No valid JSON in API response" }, { status: 500 });
-    }
-    const parsed = JSON.parse(match[0]);
-    if (!parsed.rentControl || !parsed.finalApplicability) {
-      return Response.json({ error: "Incomplete analysis structure" }, { status: 500 });
-    }
-    return Response.json(parsed);
-  } catch (err) {
-    console.error("Analysis error:", err);
-    return Response.json({ error: "Analysis failed: " + err.message }, { status: 500 });
   }
 }
