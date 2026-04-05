@@ -1,15 +1,22 @@
-import { config } from 'dotenv';
-import { resolve } from 'path';
-config({ path: resolve(process.cwd(), '.env.local'), processEnv: process.env });
-
 import Anthropic from "@anthropic-ai/sdk";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+
+function getApiKey() {
+  if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
+  try {
+    const envFile = readFileSync(resolve(process.cwd(), ".env.local"), "utf-8");
+    const match = envFile.match(/ANTHROPIC_API_KEY=(.+)/);
+    return match ? match[1].trim() : undefined;
+  } catch { return undefined; }
+}
 
 const GEO_SYS =
   'You are a US address normalization engine. Return ONLY valid JSON: {"normalized":"full address","zip":"5-digit ZIP","state":"state name","county":"county","city":"city","borough":"borough or N/A","municipality":"municipality or N/A","lat":"lat 4dec","lng":"lon 4dec","valid":true/false,"errorMessage":"if invalid"}';
 
 export async function POST(request) {
   try {
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    const client = new Anthropic({ apiKey: getApiKey() });
     const { address } = await request.json();
     if (!address || !address.trim()) {
       return Response.json({ error: "Address is required" }, { status: 400 });

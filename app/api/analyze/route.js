@@ -1,8 +1,15 @@
-import { config } from 'dotenv';
-import { resolve } from 'path';
-config({ path: resolve(process.cwd(), '.env.local'), processEnv: process.env });
-
 import Anthropic from "@anthropic-ai/sdk";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+
+function getApiKey() {
+  if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
+  try {
+    const envFile = readFileSync(resolve(process.cwd(), ".env.local"), "utf-8");
+    const match = envFile.match(/ANTHROPIC_API_KEY=(.+)/);
+    return match ? match[1].trim() : undefined;
+  } catch { return undefined; }
+}
 
 const ANA_SYS = `You are a senior U.S. CRE regulatory analyst. Given a property, use web search to produce a comprehensive rent regulation analysis.
 
@@ -35,7 +42,7 @@ export async function POST(request) {
   if (!property) {
     return Response.json({ error: "Property data is required" }, { status: 400 });
   }
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const client = new Anthropic({ apiKey: getApiKey() });
   const msg = "Analyze rent control for: Address: " + property.normalized + " | ZIP: " + property.zip + " | State: " + property.state + " | County: " + property.county + " | City: " + property.city + " | Borough: " + (property.borough !== "N/A" ? property.borough : "N/A") + " | Coords: " + property.lat + ", " + property.lng + "\n\nResearch: (1) year built, (2) current rent control at each layer, (3) governing structure, (4) age-based applicability, (5) pending legislation past 12mo, (6) synthesize final applicability with underwriting rent growth formula and investment implications.\nReturn ONLY JSON.";
 
   for (let attempt = 0; attempt < 3; attempt++) {
