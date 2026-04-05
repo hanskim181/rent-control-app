@@ -21,7 +21,7 @@ export async function POST(request) {
       messages: [{ role: "user", content: `Normalize: "${address}"` }],
     });
     const text = msg.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
-    const clean = text.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+    const clean = text.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").replace(/<cite[^>]*>/g, "").replace(/<\/cite>/g, "").trim();
     const match = clean.match(/\{[\s\S]*\}/);
     if (!match) {
       return Response.json({ error: "Failed to parse address" }, { status: 500 });
