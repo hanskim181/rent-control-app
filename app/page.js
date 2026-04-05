@@ -1,5 +1,7 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 const bC = (b) => {
   const m = {
@@ -82,12 +84,201 @@ function doExportReport(prop, data) {
   const fa = data.finalApplicability || {};
   const bc = data.buildingCharacteristics || {};
   const gs = data.governingStructure || {};
-  const flags = (fa.riskFlags || []).map(f => "  - " + f).join("\n");
-  const rcTxt = (data.rentControl || []).map(rc => "\n  " + rc.jurisdiction + " (" + rc.layerType + ")\n  Status: " + rc.statusLabel + "\n  Formula: " + rc.formula + "\n  Summary: " + rc.summary + "\n  Applicability: " + rc.applicability + "\n  Investment Impact: " + (rc.investmentImplications || "-") + "\n  Certainty: " + rc.certainty + "\n  Sources: " + (rc.sources || []).map(s => s.title + " " + s.url).join("; ")).join("\n");
-  const legTxt = (data.legislation || []).map(l => "\n  " + l.title + " [" + l.status + "] - " + l.jurisdiction + "\n  Date: " + l.date + "\n  Summary: " + l.summary + "\n  Forward: " + l.forwardLooking + "\n  Investment: " + l.whyItMatters + "\n  Sources: " + (l.sources || []).map(s => s.title + " " + s.url).join("; ")).join("\n");
-  const txt = "MULTIFAMILY RENT CONTROL INTELLIGENCE\nRegulatory Screening Report\nGenerated: " + new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + "\n" + "=".repeat(60) + "\n\n1. PROPERTY OVERVIEW\n" + "-".repeat(40) + "\nAddress: " + prop.normalized + "\nZIP: " + prop.zip + " | State: " + prop.state + " | County: " + prop.county + " | City: " + prop.city + "\nBorough: " + (prop.borough !== "N/A" ? prop.borough : "N/A") + "\nYear Built: " + (bc.yearBuilt || "N/A") + " | Age: " + (bc.estimatedAge ? bc.estimatedAge + " years" : "N/A") + "\n\n2. INVESTMENT SUMMARY\n" + "-".repeat(40) + "\n" + (data.investmentSummary || []).map(b => "- " + b).join("\n") + "\nRegulatory Risk: " + (data.regulatoryRiskLevel || "-") + "\n\n3. FINAL APPLICABILITY\n" + "-".repeat(40) + "\nClassification: " + (fa.classification || "") + "\nPrimary Rule: " + (fa.primaryGoverningRule || "") + "\nOverlay: " + (fa.overlayRules || "None") + "\nConfidence: " + (fa.confidenceLevel || "") + "\n\nUW Rent Growth Constraint:\n" + (fa.underwritingRentGrowthFormula || "-") + "\n\nAge: " + (fa.ageInterpretation || "-") + "\n\nReasoning:\n" + (fa.reasoning || "") + "\n\nInvestment Implications:\n" + (fa.investmentImplications || "-") + "\n\nRisk Flags:\n" + (flags || "  None") + "\n\n4. GOVERNING STRUCTURE\n" + "-".repeat(40) + "\nPreemption: " + (gs.statePreemptionStatus || "") + "\nRegime: " + (gs.overlappingRegime || "") + "\nPrimary: " + (gs.primaryRule || "") + "\nOverlay: " + (gs.overlayRules || "None") + "\nAsset Dep: " + (gs.assetLevelDependency || "") + "\n\n" + (gs.structuralInterpretation || "") + "\n\n5. RENT CONTROL BY JURISDICTION\n" + "-".repeat(40) + rcTxt + "\n\n6. LEGISLATION\n" + "-".repeat(40) + legTxt + "\n\nDisclaimer: For screening purposes only. Not legal advice. Confirm through qualified legal counsel.\n";
-  const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
-  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "RentControl_" + prop.zip + "_" + new Date().toISOString().slice(0, 10) + ".txt"; a.click(); URL.revokeObjectURL(a.href);
+  const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "letter" });
+  const W = doc.internal.pageSize.getWidth();
+  const M = 18;
+  const CW = W - M * 2;
+  const dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  let y = 0;
+
+  const checkPage = (need) => { if (y + need > 260) { doc.addPage(); y = 20; } };
+  const drawLine = (y1, color) => { doc.setDrawColor(...color); doc.setLineWidth(0.4); doc.line(M, y1, W - M, y1); };
+  const sectionTitle = (num, title) => {
+    checkPage(18);
+    y += 10;
+    doc.setFontSize(12); doc.setFont("helvetica", "bold"); doc.setTextColor(15, 23, 42);
+    doc.text(num + ".  " + title, M, y);
+    y += 2; drawLine(y, [51, 65, 85]); y += 6;
+  };
+  const label = (lbl, val, indent) => {
+    checkPage(10);
+    const x = indent || M;
+    doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+    doc.text(lbl.toUpperCase(), x, y);
+    y += 3.5;
+    doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
+    const lines = doc.splitTextToSize(String(val || "—"), CW - (x - M));
+    doc.text(lines, x, y); y += lines.length * 4 + 2;
+  };
+  const kvRow = (lbl, val) => {
+    checkPage(8);
+    doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+    doc.text(lbl.toUpperCase(), M + 2, y);
+    doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
+    doc.text(String(val || "—"), M + 52, y);
+    y += 5;
+  };
+
+  // === COVER HEADER ===
+  doc.setFillColor(15, 23, 42); doc.rect(0, 0, W, 44, "F");
+  doc.setFontSize(18); doc.setFont("helvetica", "bold"); doc.setTextColor(255, 255, 255);
+  doc.text("Multifamily Rent Control Intelligence", M, 18);
+  doc.setFontSize(10); doc.setFont("helvetica", "normal"); doc.setTextColor(148, 163, 184);
+  doc.text("Regulatory Screening Report", M, 26);
+  doc.setFontSize(8); doc.text("Generated: " + dateStr, M, 33);
+  doc.text("CONFIDENTIAL", W - M - doc.getTextWidth("CONFIDENTIAL"), 33);
+  y = 54;
+
+  // === 1. PROPERTY OVERVIEW ===
+  sectionTitle("1", "Property Overview");
+  doc.autoTable({
+    startY: y, margin: { left: M, right: M }, theme: "plain",
+    styles: { fontSize: 9, cellPadding: { top: 2, bottom: 2, left: 4, right: 4 }, textColor: [30, 41, 59] },
+    headStyles: { fillColor: [241, 245, 249], textColor: [100, 116, 139], fontStyle: "bold", fontSize: 7.5 },
+    body: [
+      ["Address", prop.normalized, "ZIP Code", prop.zip],
+      ["State", prop.state, "County", prop.county],
+      ["City", prop.city, "Borough", prop.borough !== "N/A" ? prop.borough : "N/A"],
+      ["Year Built", bc.yearBuilt || "N/A", "Building Age", bc.estimatedAge ? bc.estimatedAge + " years" : "N/A"],
+      ["Coordinates", prop.lat + ", " + prop.lng, "Data Confidence", bc.confidence || "N/A"],
+    ],
+    columnStyles: { 0: { fontStyle: "bold", cellWidth: 30 }, 1: { cellWidth: 58 }, 2: { fontStyle: "bold", cellWidth: 30 }, 3: { cellWidth: 58 } },
+  });
+  y = doc.lastAutoTable.finalY + 4;
+
+  // === 2. INVESTMENT SUMMARY ===
+  sectionTitle("2", "Investment Summary");
+  checkPage(12);
+  doc.setFillColor(250, 251, 253); doc.roundedRect(M, y - 2, CW, 10, 2, 2, "F");
+  doc.setFontSize(9); doc.setFont("helvetica", "bold");
+  doc.setTextColor(22, 101, 52); doc.text("Regulatory Risk: " + (data.regulatoryRiskLevel || "—"), M + 4, y + 4);
+  doc.setTextColor(71, 85, 105); doc.text("Classification: " + (fa.classification || "—"), M + 70, y + 4);
+  y += 14;
+  (data.investmentSummary || []).forEach(b => {
+    checkPage(8);
+    doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
+    const lines = doc.splitTextToSize(b, CW - 8);
+    doc.text("•", M + 2, y); doc.text(lines, M + 7, y);
+    y += lines.length * 4 + 2;
+  });
+
+  // === 3. FINAL APPLICABILITY ===
+  sectionTitle("3", "Final Rent Control Applicability");
+  kvRow("Classification", fa.classification);
+  kvRow("Primary Rule", fa.primaryGoverningRule);
+  kvRow("Overlay Rule(s)", fa.overlayRules || "None");
+  kvRow("Confidence", fa.confidenceLevel);
+  kvRow("Age Interpretation", fa.ageInterpretation);
+  y += 2;
+  checkPage(16);
+  doc.setFillColor(248, 250, 252); doc.setDrawColor(226, 232, 240);
+  doc.roundedRect(M, y - 2, CW, 14, 2, 2, "FD");
+  doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+  doc.text("UNDERWRITING RENT GROWTH CONSTRAINT", M + 4, y + 3);
+  doc.setFontSize(10); doc.setFont("courier", "bold"); doc.setTextColor(15, 23, 42);
+  doc.text(String(fa.underwritingRentGrowthFormula || "—"), M + 4, y + 9);
+  y += 18;
+  label("Applicability Reasoning", fa.reasoning);
+  label("Investment Implications", fa.investmentImplications);
+  if (fa.riskFlags && fa.riskFlags.length > 0) {
+    checkPage(10);
+    doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(153, 27, 27);
+    doc.text("RISK FLAGS", M, y); y += 4;
+    fa.riskFlags.forEach(f => {
+      checkPage(6);
+      doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(153, 27, 27);
+      doc.text("!  " + f, M + 2, y); y += 5;
+    });
+    y += 2;
+  }
+
+  // === 4. GOVERNING STRUCTURE ===
+  sectionTitle("4", "Governing Rent Regulation Structure");
+  kvRow("Preemption Status", GL[gs.statePreemptionStatus] || gs.statePreemptionStatus);
+  kvRow("Local Authority", gs.localRegulationAuthority);
+  kvRow("Local Rule Strength", gs.localRuleStrength);
+  kvRow("Regime Structure", RL[gs.overlappingRegime] || gs.overlappingRegime);
+  kvRow("Asset Dependency", DL[gs.assetLevelDependency] || gs.assetLevelDependency);
+  y += 2;
+  label("Primary Rule", gs.primaryRule);
+  label("Structural Interpretation", gs.structuralInterpretation);
+  label("Applicability Risk", gs.applicabilityRiskNote);
+
+  // === 5. RENT CONTROL BY JURISDICTION ===
+  sectionTitle("5", "Rent Control by Jurisdiction");
+  (data.rentControl || []).forEach(rc => {
+    checkPage(30);
+    doc.setFillColor(248, 250, 252); doc.roundedRect(M, y - 2, CW, 8, 1, 1, "F");
+    doc.setFontSize(10); doc.setFont("helvetica", "bold"); doc.setTextColor(15, 23, 42);
+    doc.text(rc.jurisdiction, M + 3, y + 3);
+    doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(100, 116, 139);
+    doc.text(rc.layerType + "  |  " + (rc.badge || ""), W - M - doc.getTextWidth(rc.layerType + "  |  " + (rc.badge || "")), y + 3);
+    y += 10;
+    kvRow("Status", rc.statusLabel);
+    kvRow("Formula", rc.formula);
+    kvRow("Certainty", rc.certainty);
+    if (rc.ageThreshold) kvRow("Age Threshold", rc.ageThreshold);
+    label("Summary", rc.summary, M + 2);
+    label("Applicability", rc.applicability, M + 2);
+    label("Investment Impact", rc.investmentImplications, M + 2);
+    if (rc.sources && rc.sources.length > 0) {
+      doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+      doc.text("SOURCES", M + 2, y); y += 4;
+      rc.sources.forEach(s => {
+        checkPage(6);
+        doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(37, 99, 235);
+        const srcLine = doc.splitTextToSize((s.title || "") + " (" + (s.type || "") + ") - " + (s.url || ""), CW - 6);
+        doc.text(srcLine, M + 4, y); y += srcLine.length * 3.5 + 1;
+      });
+    }
+    y += 4;
+  });
+
+  // === 6. LEGISLATION ===
+  sectionTitle("6", "Pending Legislation & Regulatory Activity");
+  (data.legislation || []).forEach(leg => {
+    checkPage(24);
+    doc.setFontSize(10); doc.setFont("helvetica", "bold"); doc.setTextColor(15, 23, 42);
+    doc.text(leg.title || "", M, y);
+    doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(100, 116, 139);
+    y += 4;
+    doc.text(leg.jurisdiction + "  |  " + (leg.status || "") + "  |  " + (leg.date || ""), M, y);
+    y += 5;
+    label("Summary", leg.summary, M + 2);
+    label("Forward-Looking", leg.forwardLooking, M + 2);
+    label("Investment Relevance", leg.whyItMatters, M + 2);
+    if (leg.sources && leg.sources.length > 0) {
+      doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+      doc.text("SOURCES", M + 2, y); y += 4;
+      leg.sources.forEach(s => {
+        checkPage(6);
+        doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(37, 99, 235);
+        const srcLine = doc.splitTextToSize((s.title || "") + " - " + (s.url || ""), CW - 6);
+        doc.text(srcLine, M + 4, y); y += srcLine.length * 3.5 + 1;
+      });
+    }
+    y += 4;
+  });
+
+  // === DISCLAIMER FOOTER ===
+  checkPage(30);
+  y += 6; drawLine(y, [148, 163, 184]); y += 6;
+  doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+  doc.text("DISCLAIMER", M, y); y += 4;
+  doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(71, 85, 105);
+  const disc = doc.splitTextToSize("For screening purposes only. Not legal advice. AI-generated analysis may contain errors. Final applicability depends on asset-specific characteristics including certificate of occupancy date, unit count, ownership structure, tax benefit status, and renovation history. Confirm through qualified legal counsel before investment decisions.", CW);
+  doc.text(disc, M, y);
+
+  // === PAGE NUMBERS ===
+  const pages = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pages; i++) {
+    doc.setPage(i);
+    doc.setFontSize(7); doc.setFont("helvetica", "normal"); doc.setTextColor(148, 163, 184);
+    doc.text("Rent Control Intelligence  |  " + prop.normalized, M, 274);
+    doc.text("Page " + i + " of " + pages, W - M - doc.getTextWidth("Page " + i + " of " + pages), 274);
+  }
+
+  doc.save("RentControl_" + prop.zip + "_" + new Date().toISOString().slice(0, 10) + ".pdf");
 }
 
 function doExportCSV(prop, data) {
