@@ -111,11 +111,14 @@ async function doExportReport(prop, data) {
   };
   const kvRow = (lbl, val) => {
     checkPage(8);
+    const labelW = 50;
+    const valW = CW - labelW - 4;
     doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
     doc.text(lbl.toUpperCase(), M + 2, y);
     doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
-    doc.text(String(val || "—"), M + 52, y);
-    y += 5;
+    const valLines = doc.splitTextToSize(String(val || "—"), valW);
+    doc.text(valLines, M + 52, y);
+    y += Math.max(valLines.length * 4, 5);
   };
 
   // === COVER HEADER ===
@@ -139,26 +142,39 @@ async function doExportReport(prop, data) {
   ];
   propRows.forEach(row => {
     checkPage(8);
-    doc.setFillColor(248, 250, 252); doc.rect(M, y - 3.5, CW, 7, "F");
+    const halfW = CW / 2;
+    const valW1 = halfW - 37;
+    const valW2 = halfW - 37;
+    doc.setFontSize(9); doc.setFont("helvetica", "normal");
+    const lines1 = doc.splitTextToSize(String(row[1]), valW1);
+    const lines2 = doc.splitTextToSize(String(row[3]), valW2);
+    const rowH = Math.max(lines1.length, lines2.length) * 4 + 3;
+    doc.setFillColor(248, 250, 252); doc.rect(M, y - 3.5, CW, rowH, "F");
     doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
     doc.text(row[0].toUpperCase(), M + 2, y);
     doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
-    doc.text(String(row[1]), M + 35, y);
+    doc.text(lines1, M + 35, y);
     doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
-    doc.text(row[2].toUpperCase(), M + CW / 2 + 2, y);
+    doc.text(row[2].toUpperCase(), M + halfW + 2, y);
     doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
-    doc.text(String(row[3]), M + CW / 2 + 35, y);
-    y += 7;
+    doc.text(lines2, M + halfW + 35, y);
+    y += rowH;
   });
 
   // === 2. INVESTMENT SUMMARY ===
   sectionTitle("2", "Investment Summary");
   checkPage(12);
-  doc.setFillColor(250, 251, 253); doc.roundedRect(M, y - 2, CW, 10, 2, 2, "F");
+  const riskText = "Regulatory Risk: " + (data.regulatoryRiskLevel || "—");
+  const classText = "Classification: " + (fa.classification || "—");
   doc.setFontSize(9); doc.setFont("helvetica", "bold");
-  doc.setTextColor(22, 101, 52); doc.text("Regulatory Risk: " + (data.regulatoryRiskLevel || "—"), M + 4, y + 4);
-  doc.setTextColor(71, 85, 105); doc.text("Classification: " + (fa.classification || "—"), M + 70, y + 4);
-  y += 14;
+  const riskW = doc.getTextWidth(riskText);
+  const classW = CW - riskW - 16;
+  const classLines = doc.splitTextToSize(classText, classW > 40 ? classW : CW - 8);
+  const summBoxH = Math.max(10, classLines.length * 4 + 6);
+  doc.setFillColor(250, 251, 253); doc.roundedRect(M, y - 2, CW, summBoxH, 2, 2, "F");
+  doc.setTextColor(22, 101, 52); doc.text(riskText, M + 4, y + 4);
+  doc.setTextColor(71, 85, 105); doc.text(classLines, M + riskW + 12, y + 4);
+  y += summBoxH + 4;
   (data.investmentSummary || []).forEach(b => {
     checkPage(8);
     doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(30, 41, 59);
@@ -176,13 +192,16 @@ async function doExportReport(prop, data) {
   kvRow("Age Interpretation", fa.ageInterpretation);
   y += 2;
   checkPage(16);
+  doc.setFontSize(10); doc.setFont("courier", "bold");
+  const uwLines = doc.splitTextToSize(String(fa.underwritingRentGrowthFormula || "—"), CW - 10);
+  const uwBoxH = 8 + uwLines.length * 5 + 4;
   doc.setFillColor(248, 250, 252); doc.setDrawColor(226, 232, 240);
-  doc.roundedRect(M, y - 2, CW, 14, 2, 2, "FD");
+  doc.roundedRect(M, y - 2, CW, uwBoxH, 2, 2, "FD");
   doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
   doc.text("UNDERWRITING RENT GROWTH CONSTRAINT", M + 4, y + 3);
   doc.setFontSize(10); doc.setFont("courier", "bold"); doc.setTextColor(15, 23, 42);
-  doc.text(String(fa.underwritingRentGrowthFormula || "—"), M + 4, y + 9);
-  y += 18;
+  doc.text(uwLines, M + 4, y + 9);
+  y += uwBoxH + 4;
   label("Applicability Reasoning", fa.reasoning);
   label("Investment Implications", fa.investmentImplications);
   if (fa.riskFlags && fa.riskFlags.length > 0) {
@@ -192,7 +211,8 @@ async function doExportReport(prop, data) {
     fa.riskFlags.forEach(f => {
       checkPage(6);
       doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(153, 27, 27);
-      doc.text("!  " + f, M + 2, y); y += 5;
+      const flagLines = doc.splitTextToSize("!  " + f, CW - 4);
+      doc.text(flagLines, M + 2, y); y += flagLines.length * 4 + 1;
     });
     y += 2;
   }
@@ -244,11 +264,13 @@ async function doExportReport(prop, data) {
   (data.legislation || []).forEach(leg => {
     checkPage(24);
     doc.setFontSize(10); doc.setFont("helvetica", "bold"); doc.setTextColor(15, 23, 42);
-    doc.text(leg.title || "", M, y);
+    const legTitle = doc.splitTextToSize(leg.title || "", CW);
+    doc.text(legTitle, M, y);
+    y += legTitle.length * 5;
     doc.setFontSize(8); doc.setFont("helvetica", "normal"); doc.setTextColor(100, 116, 139);
-    y += 4;
-    doc.text(leg.jurisdiction + "  |  " + (leg.status || "") + "  |  " + (leg.date || ""), M, y);
-    y += 5;
+    const legMeta = doc.splitTextToSize(leg.jurisdiction + "  |  " + (leg.status || "") + "  |  " + (leg.date || ""), CW);
+    doc.text(legMeta, M, y);
+    y += legMeta.length * 3.5 + 2;
     label("Summary", leg.summary, M + 2);
     label("Forward-Looking", leg.forwardLooking, M + 2);
     label("Investment Relevance", leg.whyItMatters, M + 2);
@@ -448,7 +470,7 @@ export default function Home() {
     setPhase("geo"); setStep(0);
     let geo;
     try { geo = await geocode(addr); setProp(geo); } catch (e) { setError(e.message); setLoading(false); setPhase(null); return; }
-    await new Promise(res => setTimeout(res, 3000));
+    if (!geo._cached) await new Promise(res => setTimeout(res, 1000));
     setPhase("analysis"); startSteps();
     try { const d = await analyze(geo); setData(d); } catch (e) { setError(e.message); }
     if (stepRef.current) clearInterval(stepRef.current);

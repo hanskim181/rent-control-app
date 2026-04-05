@@ -1,6 +1,25 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
+import sampleCache from "@/data/sample-cache.json";
+
+const isDev = process.env.NODE_ENV === "development";
+const CACHE_PATH = resolve(process.cwd(), "data/sample-cache.json");
+
+function readCache() {
+  if (isDev) {
+    try { return JSON.parse(readFileSync(CACHE_PATH, "utf-8")); } catch {}
+  }
+  return sampleCache;
+}
+function writeCache(cache) {
+  if (isDev) {
+    try { writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2)); } catch {}
+  }
+}
+function cacheKey(addr) {
+  return addr.trim().toLowerCase().replace(/[^a-z0-9]/g, "");
+}
 
 function getApiKey() {
   if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
@@ -42,6 +61,12 @@ export async function POST(request) {
   if (!property) {
     return Response.json({ error: "Property data is required" }, { status: 400 });
   }
+  const key = cacheKey(property.normalized || "");
+  const cache = readCache();
+  if (cache.analyze[key]) {
+    await new Promise(r => setTimeout(r, 2000 + Math.random() * 1500));
+    return Response.json({ ...cache.analyze[key], _cached: true });
+  }
   const client = new Anthropic({ apiKey: getApiKey() });
   const msg = "Analyze rent control for: Address: " + property.normalized + " | ZIP: " + property.zip + " | State: " + property.state + " | County: " + property.county + " | City: " + property.city + " | Borough: " + (property.borough !== "N/A" ? property.borough : "N/A") + " | Coords: " + property.lat + ", " + property.lng + "\n\nResearch: (1) year built, (2) current rent control at each layer, (3) governing structure, (4) age-based applicability, (5) pending legislation past 12mo, (6) synthesize final applicability with underwriting rent growth formula and investment implications.\nReturn ONLY JSON.";
 
@@ -64,6 +89,9 @@ export async function POST(request) {
       if (!parsed.rentControl || !parsed.finalApplicability) {
         return Response.json({ error: "Incomplete analysis structure" }, { status: 500 });
       }
+      const freshCache = readCache();
+      freshCache.analyze[key] = parsed;
+      writeCache(freshCache);
       return Response.json(parsed);
     } catch (err) {
       if (err.status === 429 && attempt < 2) {

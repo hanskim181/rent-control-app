@@ -1,6 +1,25 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
+import sampleCache from "@/data/sample-cache.json";
+
+const isDev = process.env.NODE_ENV === "development";
+const CACHE_PATH = resolve(process.cwd(), "data/sample-cache.json");
+
+function readCache() {
+  if (isDev) {
+    try { return JSON.parse(readFileSync(CACHE_PATH, "utf-8")); } catch {}
+  }
+  return sampleCache;
+}
+function writeCache(cache) {
+  if (isDev) {
+    try { writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2)); } catch {}
+  }
+}
+function cacheKey(addr) {
+  return addr.trim().toLowerCase().replace(/[^a-z0-9]/g, "");
+}
 
 function getApiKey() {
   if (process.env.ANTHROPIC_API_KEY) return process.env.ANTHROPIC_API_KEY;
@@ -21,6 +40,12 @@ export async function POST(request) {
     if (!address || !address.trim()) {
       return Response.json({ error: "Address is required" }, { status: 400 });
     }
+    const key = cacheKey(address);
+    const cache = readCache();
+    if (cache.geocode[key]) {
+      await new Promise(r => setTimeout(r, 800 + Math.random() * 400));
+      return Response.json({ ...cache.geocode[key], _cached: true });
+    }
     const msg = await client.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1000,
@@ -37,6 +62,9 @@ export async function POST(request) {
     if (!result.valid) {
       return Response.json({ error: result.errorMessage || "Invalid address" }, { status: 400 });
     }
+    const freshCache = readCache();
+    freshCache.geocode[key] = result;
+    writeCache(freshCache);
     return Response.json(result);
   } catch (err) {
     console.error("Geocode error:", err);
