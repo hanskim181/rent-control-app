@@ -497,7 +497,7 @@ export default function Home() {
             <h1 style={{ fontSize: 20, fontWeight: 700, color: "#0f172a", marginBottom: 8 }}>Regulatory Screening & Applicability Engine</h1>
             <p style={{ fontSize: 13, color: "#64748b", maxWidth: 480, margin: "0 auto", lineHeight: 1.6 }}>Enter any U.S. multifamily property address to screen for rent regulation exposure, assess governing structure, evaluate age-based applicability, and generate a final regulatory determination with underwriting implications.</p>
             <div style={{ marginTop: 28, display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-              {["432 Park Avenue, New York, NY", "8500 Burton Way, Los Angeles, CA", "205 W 5th St, Austin, TX", "200 N Michigan Ave, Chicago, IL", "701 S Miami Ave, Miami, FL", "One Memorial Drive, Cambridge, MA", "361 17th St NW, Atlanta, GA", "1521 2nd Ave, Seattle, WA"].map((ex, i) => (
+              {["70 Pine Street, New York, NY", "8500 Burton Way, Los Angeles, CA", "301 West Ave, Austin, TX", "200 N Michigan Ave, Chicago, IL", "1600 NE 1st Ave, Miami, FL", "929 Massachusetts Ave, Cambridge, MA", "265 Ponce De Leon Ave NE, Atlanta, GA", "2116 4th Ave, Seattle, WA"].map((ex, i) => (
                 <button key={i} onClick={() => { setQuery(ex); doSearch(ex); }} style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 4, padding: "5px 12px", fontSize: 11.5, color: "#64748b", cursor: "pointer" }}>{ex}</button>
               ))}
             </div>
