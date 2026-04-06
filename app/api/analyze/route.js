@@ -103,35 +103,14 @@ The following are verified regulatory facts by jurisdiction. Always use these as
 - 15-year sunset clause on the rent cap provisions
 - Seattle (additional local requirements): 180-day advance written notice for any housing cost increase (since November 2021). EDRA (Economic Displacement Relocation Assistance): if increase is 10%+ in 12 months, landlord must provide EDRA notice and may owe up to 3 months' relocation assistance to qualifying tenants.
 
-## Underwriting Scenarios
-Based on your regulatory analysis, generate an "underwritingScenarios" object with rent growth scenarios for a 5-year hold period.
+## Regulatory Outcome Analysis
+Generate a "regulatoryOutcome" object analyzing the impact of pending regulations on this property.
 
-SCENARIO GENERATION RULES:
-If the property has material pending regulatory risk (pending legislation, upcoming exemption expiration, unverified regulatory status, or binary regulatory outcomes), generate three scenarios:
-  - baseCase: The most likely regulatory outcome given current information.
-  - downside: The most restrictive plausible regulatory outcome.
-  - upside: The most favorable plausible regulatory outcome.
-If the property has NO material pending regulatory risk (clear state preemption with no pending repeal legislation, no exemption transitions within the hold period), generate only one scenario:
-  - baseCase only. Set scenarioType to "single" and omit downside/upside.
-
-GROWTH RATE RULES:
-- annualRentGrowth must be a single number (percentage), NOT a range
-- For rent-stabilized: base case must not exceed applicable RGB or formula-based cap
-- For Good Cause Eviction: reflect the local rent standard formula (CPI + 5%, max 10%)
-- For state-preempted / unregulated: use 3-5% based on local market fundamentals
-- For pending rent control: downside must use the specific proposed cap
-
-CUMULATIVE IMPACT CALCULATION:
-- fiveYearCumulativeImpact = ((sum of scenario rents over 5 years) - (sum of base case rents over 5 years)) / (sum of base case rents over 5 years) * 100
-- Express as percentage string with sign (e.g., "-18.2%" or "+15.8%")
-- Assume $1,000 starting monthly rent; the percentage result is scale-independent
-
-RECOMMENDATION RULES:
-- "GO": No regulatory constraints that materially limit rent growth, AND no pending legislation with realistic probability of passage
-- "CONDITIONAL": Regulatory status requires verification, OR pending legislation creates >15% variance between downside and upside, OR exemption expires within the hold period
-- "NO-GO": Current regulations cap rent growth below inflation with no plausible path to higher returns
-
-keyCondition: State the single most critical factor that determines whether this investment meets return targets. Be specific and actionable.
+RULES:
+- If the property has ANY pending regulation (pending legislation, ballot initiative, upcoming exemption expiration, or regulatory transition within 5 years), set hasPendingRegulation to true and populate pendingItems.
+- If the property has NO pending regulation (clear state preemption with no active repeal efforts, no exemption transitions), set hasPendingRegulation to false and provide a brief naReason explaining why (e.g., "State preemption under Texas Government Code Chapter 2143 with no active repeal legislation or pending regulatory changes").
+- Each pendingItem must show factual regulatory consequences under "ifPasses" vs "ifFails" — no rent growth predictions or market estimates.
+- Include polling data, legislative status, and timeline where available.
 
 Return ONLY valid JSON. No markdown, no backticks, no preamble.
 
@@ -145,7 +124,7 @@ Schema:
   "governingStructure":{"statePreemptionStatus":"preempts_local|allows_local|partial_preemption|unclear","localRegulationAuthority":"","localRuleStrength":"","boroughAuthority":"","overlappingRegime":"","assetLevelDependency":"high|moderate|low","primaryRule":"","overlayRules":"","structuralInterpretation":"","boroughInterpretation":"","applicabilityRiskNote":""},
   "finalApplicability":{"classification":"","primaryGoverningRule":"","overlayRules":"","reasoning":"","ageInterpretation":"","confidenceLevel":"","riskFlags":[],"underwritingRentGrowthFormula":"single-line math expression for rent growth constraint in acquisition underwriting","investmentImplications":"3-5 sentences for underwriting teams"},
   "legislation":[{"jurisdiction":"","layerType":"","title":"","status":"","date":"","summary":"","forwardLooking":"","whyItMatters":"","sources":[{"title":"","url":"","type":"","note":""}]}],
-  "underwritingScenarios":{"scenarioType":"single|three","holdPeriodYears":5,"baseCase":{"annualRentGrowth":0,"basis":"","regulatoryAssumption":""},"downside":{"annualRentGrowth":0,"basis":"","trigger":"","fiveYearCumulativeImpact":"","probability":""},"upside":{"annualRentGrowth":0,"basis":"","trigger":"","fiveYearCumulativeImpact":"","probability":""},"recommendation":"GO|NO-GO|CONDITIONAL","keyCondition":""}
+  "regulatoryOutcome":{"hasPendingRegulation":true,"naReason":"only when hasPendingRegulation is false","pendingItems":[{"name":"","ifPasses":{"cap":"","baseRent":"","vacancyDecontrol":"","effectiveDate":"","exemptions":""},"ifFails":{"cap":"","summary":""},"polling":"","status":""}]}
 }
 
 Rules:
@@ -190,24 +169,6 @@ export async function POST(request) {
       const parsed = JSON.parse(match[0]);
       if (!parsed.rentControl || !parsed.finalApplicability) {
         return Response.json({ error: "Incomplete analysis structure" }, { status: 500 });
-      }
-      if (parsed.underwritingScenarios) {
-        const uw = parsed.underwritingScenarios;
-        const calcImpact = (baseRate, altRate) => {
-          let sumBase = 0, sumAlt = 0;
-          for (let yr = 1; yr <= 5; yr++) {
-            sumBase += 1000 * Math.pow(1 + baseRate / 100, yr);
-            sumAlt += 1000 * Math.pow(1 + altRate / 100, yr);
-          }
-          const pct = ((sumAlt - sumBase) / sumBase * 100).toFixed(1);
-          return (pct >= 0 ? "+" : "") + pct + "%";
-        };
-        if (uw.baseCase && uw.downside) {
-          uw.downside.fiveYearCumulativeImpact = calcImpact(uw.baseCase.annualRentGrowth, uw.downside.annualRentGrowth);
-        }
-        if (uw.baseCase && uw.upside) {
-          uw.upside.fiveYearCumulativeImpact = calcImpact(uw.baseCase.annualRentGrowth, uw.upside.annualRentGrowth);
-        }
       }
       const freshCache = readCache();
       freshCache.analyze[key] = parsed;

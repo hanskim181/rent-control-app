@@ -123,359 +123,353 @@
       "buildingCharacteristics": {
         "yearBuilt": 1932,
         "estimatedAge": 94,
-        "source": "Multiple reliable sources confirm construction completed 1932",
+        "source": "Multiple sources confirm construction between 1930-1932, with completion in 1932",
         "confidence": "High",
-        "notes": "Iconic Art Deco skyscraper designed by Clinton & Russell, Holton & George; converted to residential use in 2016"
+        "notes": "Art Deco skyscraper originally built as the Cities Service Building, converted to luxury residential (The AIA Building) in 2015"
       },
       "investmentSummary": [
-        "Building constructed in 1932 qualifies for Good Cause Eviction Law protections with annual rent increase cap of 8.79%",
-        "No rent stabilization applies as building predates 1974 threshold and no evidence of J-51/421-a tax benefits",
-        "612 luxury residential units converted from office use in 2016, likely targeting high-rent market",
-        "Good Cause Eviction law expires June 15, 2034 providing potential regulatory relief within hold period",
-        "Potential high-rent exemption if units exceed $6,004/month threshold (245% of Fair Market Rent)"
+        "70 Pine Street is exempt from both NYC rent stabilization and Good Cause Eviction Law as a post-2009 residential conversion with luxury-tier rents",
+        "The residential conversion (2015) creates a 612-unit luxury apartment building with market-rate pricing power",
+        "No rent growth constraints or regulatory caps apply - full market rent increases permitted with appropriate notice",
+        "Location in Financial District benefits from 421-g office-to-residential conversion precedents and strong rental demand"
       ],
-      "regulatoryRiskLevel": "Moderate",
+      "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
           "name": "New York State Good Cause Eviction Law",
-          "basis": "Real Property Law Article 6-A",
-          "status": "applies"
+          "basis": "Real Property Law Article 6-A (April 20, 2024)",
+          "status": "does_not_apply"
         },
         {
           "type": "City",
           "name": "New York City Rent Stabilization",
-          "basis": "Emergency Tenant Protection Act (ETPA)",
+          "basis": "Emergency Tenant Protection Act (1974)",
           "status": "does_not_apply"
         },
         {
           "type": "Borough",
           "name": "Manhattan",
-          "basis": "No additional borough-specific regulations",
+          "basis": "Same as NYC regulations",
           "status": "does_not_apply"
         }
       ],
       "rentControl": [
         {
           "jurisdiction": "New York State",
-          "layerType": "State Good Cause Eviction Law",
-          "statusLabel": "Applies - Building Pre-2009",
-          "badge": "Applies",
-          "ruleDateBasis": "Buildings with Certificate of Occupancy before January 1, 2009",
-          "formula": "Lower of (CPI + 5%) or 10% annually",
-          "summary": "Good Cause Eviction Law applies to this 1932 building, capping rent increases at local rent standard of 8.79% (as of 2025) and requiring good cause for evictions or non-renewals",
-          "applicability": "Applies to units renting below 245% of Fair Market Rent (~$6,004/month for 1BR) owned by non-small landlords (>10 units statewide)",
-          "investmentImplications": "Moderate rent growth constraint with annual increases capped at inflation-plus formula. Law expires June 15, 2034, providing regulatory relief opportunity. High-rent luxury units may qualify for exemption above $6,004/month threshold.",
-          "certainty": "High - clear statutory application to pre-2009 buildings",
-          "ageThreshold": "Applies to buildings with Certificate of Occupancy before January 1, 2009",
+          "layerType": "Good Cause Eviction Law",
+          "statusLabel": "Exempt - Post-2009 Residential Conversion",
+          "badge": "Does Not Apply",
+          "ruleDateBasis": "Building Certificate of Occupancy originally 1932, residential conversion 2015",
+          "formula": "N/A - Not applicable",
+          "summary": "70 Pine Street is exempt from Good Cause Eviction Law as a luxury residential building with rents exceeding 245% of Fair Market Rent (~$6,004/month for 1BR). The building's current residential use began with conversion post-2009, creating additional exemption grounds.",
+          "applicability": "Exempt based on luxury rent threshold and post-2009 residential conversion status",
+          "investmentImplications": "No state-level rent increase caps. Property can implement market-rate rent increases with appropriate notice periods. Good Cause protections do not apply to tenant evictions or lease non-renewals.",
+          "certainty": "High - Clear regulatory exemptions",
+          "ageThreshold": "Pre-2009 original construction, but post-2009 residential use",
           "sources": [
             {
-              "title": "New York State Good Cause Eviction Law - Attorney General",
+              "title": "New York State Good Cause Eviction Law",
               "url": "https://ag.ny.gov/publications/new-york-state-good-cause-eviction-law",
               "type": "Official",
-              "note": "Primary state authority on GCE law application"
+              "note": "Confirms exemptions for luxury rent units and post-2009 buildings"
             },
             {
               "title": "NYC HPD Good Cause Eviction Information",
               "url": "https://www.nyc.gov/site/hpd/services-and-information/good-cause-eviction.page",
               "type": "Official",
-              "note": "Current local rent standard 8.79%"
+              "note": "Details luxury rent exemption threshold at 245% of FMR"
             }
           ]
         },
         {
           "jurisdiction": "New York City",
           "layerType": "Rent Stabilization",
-          "statusLabel": "Does Not Apply - Pre-1974 Without Tax Benefits",
+          "statusLabel": "Not Rent Stabilized - Post-1974 Luxury Conversion",
           "badge": "Does Not Apply",
-          "ruleDateBasis": "Buildings with 6+ units constructed before January 1, 1974",
-          "formula": "N/A - Not applicable",
-          "summary": "NYC rent stabilization does not apply as this 1932 building predates the 1974 ETPA threshold and no evidence found of qualifying J-51 or 421-a tax benefits",
-          "applicability": "Not applicable - building predates 1974 threshold without qualifying tax benefit programs",
-          "investmentImplications": "No NYC rent stabilization constraints. Building avoids RGB-mandated increases (currently 3.0% for 1-year leases, 4.5% for 2-year leases in 2025-26 period) which are lower than Good Cause caps.",
-          "certainty": "High - building age and conversion history indicate no stabilization status",
-          "ageThreshold": "Does not meet post-1974 construction requirement for ETPA coverage",
+          "ruleDateBasis": "ETPA applies to buildings 6+ units built before January 1, 1974",
+          "formula": "N/A - Building not subject to rent stabilization",
+          "summary": "70 Pine Street was built in 1932 but is not rent stabilized. The building was converted to luxury residential use in 2015 and operates as market-rate housing. While the original construction predates 1974, the luxury residential conversion and current rent levels place it outside rent stabilization coverage.",
+          "applicability": "Not applicable - luxury market-rate building operating outside rent stabilization system",
+          "investmentImplications": "Full market-rate rent increases permitted. RGB guidelines do not apply. No lease renewal obligations beyond market terms. Property can optimize rent growth based on market conditions without regulatory constraints.",
+          "certainty": "High - Confirmed luxury market-rate operation",
+          "ageThreshold": "Pre-1974 original construction, but luxury residential conversion exempts from stabilization",
           "sources": [
             {
-              "title": "NYC Rent Stabilization Building Lists",
+              "title": "NYC Rent Stabilized Building Lists",
               "url": "https://rentguidelinesboard.cityofnewyork.us/resources/rent-stabilized-building-lists/",
               "type": "Official",
-              "note": "Guidance on J-51/421-a stabilization requirements"
+              "note": "Explains rent stabilization criteria and exemptions"
             },
             {
-              "title": "NYC Rent Guidelines Board 2025-26 Order",
-              "url": "https://rentguidelinesboard.cityofnewyork.us/2025-26-apartment-loft-order-57/",
+              "title": "Office-to-Residential Conversions in NYC",
+              "url": "https://comptroller.nyc.gov/reports/office-to-residential-conversions-in-nyc-economics-and-fiscal-estimates/",
               "type": "Official",
-              "note": "Current RGB increase rates"
+              "note": "Confirms 70 Pine Street as Financial District conversion project"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "allows_local",
-        "localRegulationAuthority": "NYC implements state Good Cause Eviction law with local rent standard calculations",
-        "localRuleStrength": "Moderate - state law with local implementation",
-        "boroughAuthority": "None - Manhattan has no additional rent regulation authority",
-        "overlappingRegime": "State Good Cause Eviction supersedes local unregulated market rules",
-        "assetLevelDependency": "high",
-        "primaryRule": "Good Cause Eviction Law rent increase caps",
-        "overlayRules": "High-rent exemption thresholds, small landlord exemptions",
-        "structuralInterpretation": "State law creates baseline tenant protections with asset-level exemptions",
-        "boroughInterpretation": "No borough-specific modifications to state or city rules",
-        "applicabilityRiskNote": "Key risks include landlord size verification and unit-level rent thresholds for exemption eligibility"
+        "localRegulationAuthority": "NYC applies state Good Cause Eviction Law and maintains local rent stabilization system",
+        "localRuleStrength": "Strong local rent regulations for covered buildings",
+        "boroughAuthority": "Manhattan follows NYC regulations",
+        "overlappingRegime": "State Good Cause and local rent stabilization can apply to same buildings if covered",
+        "assetLevelDependency": "low",
+        "primaryRule": "Market-rate housing - no rent control regulations apply",
+        "overlayRules": "Standard NYC tenant protection laws (notice requirements, etc.)",
+        "structuralInterpretation": "Clear exemption from all rent control regimes",
+        "boroughInterpretation": "Manhattan luxury market operates without rent constraints",
+        "applicabilityRiskNote": "Minimal risk of regulatory coverage - building clearly exempt from all rent control programs"
       },
       "finalApplicability": {
-        "classification": "Good Cause Eviction Regulated",
-        "primaryGoverningRule": "NY State Good Cause Eviction Law Article 6-A",
-        "overlayRules": "High-rent exemption (245% FMR threshold), small landlord exemption",
-        "reasoning": "1932 building meets pre-2009 threshold for Good Cause coverage. No evidence of rent stabilization due to building age and absence of qualifying tax benefits. Primary constraint is Good Cause local rent standard of 8.79% annually.",
-        "ageInterpretation": "Building constructed 1932, well before January 1, 2009 cutoff, qualifying for Good Cause protections",
-        "confidenceLevel": "High - clear statutory application with well-documented building characteristics",
-        "riskFlags": [
-          "High-rent units may qualify for exemption above $6,004/month (245% FMR)",
-          "Landlord ownership verification required to confirm non-small landlord status",
-          "Law expires June 15, 2034 - regulatory relief within typical hold period"
-        ],
-        "underwritingRentGrowthFormula": "min(CPI + 5%, 10%) = 8.79% for 2025, updated annually",
-        "investmentImplications": "Moderate rent growth constraint with Good Cause Eviction caps currently at 8.79% annually. Building avoids more restrictive rent stabilization rules. High-end luxury positioning may enable exemption qualification above FMR thresholds. Regulatory sunset in 2034 provides upside opportunity for future rent growth acceleration. Asset-level due diligence needed on unit rents and ownership structure to verify exemption eligibility."
+        "classification": "Unregulated Market-Rate Luxury Building",
+        "primaryGoverningRule": "New York State Tenant Protection Laws (general tenant rights only)",
+        "overlayRules": "NYC housing quality and safety codes, standard notice requirements",
+        "reasoning": "70 Pine Street is exempt from all rent regulation due to: (1) luxury rent levels exceeding Good Cause thresholds, (2) post-2009 residential conversion status, (3) market-rate luxury operation outside rent stabilization system. Original 1932 construction date is superseded by 2015 luxury residential conversion.",
+        "ageInterpretation": "Building age (1932) predates regulatory cutoffs but luxury conversion creates exemption",
+        "confidenceLevel": "High - Multiple clear exemption pathways",
+        "riskFlags": [],
+        "underwritingRentGrowthFormula": "Market rate increases with 30/60/90-day notice for increases ≥5% based on tenancy length",
+        "investmentImplications": "This luxury Financial District conversion offers unrestricted rent growth potential. The building operates in the premium Manhattan rental market without regulatory caps. Rent increases are limited only by market conditions and standard notice requirements. The property benefits from strong Financial District fundamentals and luxury positioning, allowing for optimization of rent growth based on market demand rather than regulatory constraints."
       },
       "legislation": [
         {
           "jurisdiction": "New York State",
-          "layerType": "Good Cause Eviction",
-          "title": "Good Cause Eviction Law Sunset",
-          "status": "Active with scheduled expiration",
-          "date": "Expires June 15, 2034",
-          "summary": "Current Good Cause Eviction law includes 10-year sunset clause, automatically expiring June 15, 2034 unless renewed by legislature",
-          "forwardLooking": "Significant regulatory relief opportunity as law approaches expiration within typical investment hold periods",
-          "whyItMatters": "Creates binary regulatory outcome - either law renewal with potential modifications or complete elimination of Good Cause rent growth constraints",
+          "layerType": "Good Cause Eviction Law",
+          "title": "Good Cause Eviction Law (Real Property Law Article 6-A)",
+          "status": "Active since April 20, 2024",
+          "date": "April 20, 2024",
+          "summary": "Enacted statewide rent control for market-rate apartments, with mandatory application in NYC. Caps rent increases at lower of 10% or CPI + 5%. Expires June 15, 2034.",
+          "forwardLooking": "Law remains in effect through 2034 with annual CPI adjustments",
+          "whyItMatters": "Does not apply to 70 Pine Street due to luxury rent exemption, but demonstrates regulatory trend toward expanded tenant protections",
           "sources": [
             {
-              "title": "NYSAR Good Cause Eviction Law Overview",
-              "url": "https://www.nysar.com/advocacy/new-york-states-good-cause-eviction-law/",
+              "title": "New York Enacts Good Cause Eviction Law",
+              "url": "https://www.nixonpeabody.com/insights/alerts/2024/04/22/new-york-enacts-good-cause-eviction-law",
               "type": "Legal/Policy",
-              "note": "Confirms June 15, 2034 expiration date"
+              "note": "Comprehensive analysis of Good Cause implementation"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "New York City",
+          "layerType": "Rent Stabilization Extension",
+          "title": "NYC Council Resolution 256 - Housing Emergency Declaration",
+          "status": "Approved March 19, 2024",
+          "date": "March 19, 2024",
+          "summary": "NYC Council extended rent stabilization laws through April 1, 2027 based on 1.41% vacancy rate, the lowest since 1968.",
+          "forwardLooking": "Rent stabilization system secured through 2027, with next review required by 2027",
+          "whyItMatters": "Confirms continued strength of NYC rent regulation system, though 70 Pine Street remains exempt",
+          "sources": [
+            {
+              "title": "NYC Council Declares Housing Emergency",
+              "url": "https://council.nyc.gov/press/2024/03/19/2576/",
+              "type": "Official",
+              "note": "Official Council declaration extending rent stabilization"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "three",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 8.8,
-          "basis": "Good Cause Eviction local rent standard",
-          "regulatoryAssumption": "Law remains in effect with current 8.79% cap through hold period"
-        },
-        "downside": {
-          "annualRentGrowth": 6,
-          "basis": "Potential legislative tightening of Good Cause caps to closer align with RGB rates",
-          "trigger": "Political pressure leads to formula modification reducing cap to CPI + 3%",
-          "fiveYearCumulativeImpact": "-7.9%",
-          "probability": "25% - driven by tenant advocacy and RGB precedent"
-        },
-        "upside": {
-          "annualRentGrowth": 12,
-          "basis": "Good Cause law expires in 2034 and units qualify for high-rent exemption",
-          "trigger": "Combination of law expiration and luxury positioning above FMR thresholds",
-          "fiveYearCumulativeImpact": "+9.7%",
-          "probability": "35% - sunset clause creates definitive regulatory relief opportunity"
-        },
-        "recommendation": "CONDITIONAL",
-        "keyCondition": "Verify unit-level rents exceed $6,004/month threshold to qualify for high-rent exemption, and confirm landlord ownership structure exceeds small landlord threshold to trigger Good Cause applicability"
+      "regulatoryOutcome": {
+        "hasPendingRegulation": false,
+        "naReason": "70 Pine Street operates as a luxury market-rate building exempt from all rent control regulations. No pending legislation targets luxury residential buildings, and the property's high rent levels and post-2009 residential conversion status provide clear exemption from current and foreseeable regulatory expansions.",
+        "pendingItems": []
       }
     },
     "8500burtonwaybeverlyhillsca90211": {
       "buildingCharacteristics": {
-        "yearBuilt": 2012,
-        "estimatedAge": 14,
-        "source": "Multiple property listing sources confirm 2012 construction date",
+        "yearBuilt": 2013,
+        "estimatedAge": 13,
+        "source": "Multiple real estate listings confirm 8500 Burton Way was completed in 2013",
         "confidence": "High",
-        "notes": "Property records consistently show completion in 2012/2013, with 87 luxury units"
+        "notes": "Building has received certificate of occupancy post-February 1, 1995, making it exempt from local rent control under Costa-Hawkins"
       },
       "investmentSummary": [
-        "Building exempt from Beverly Hills RSO due to post-1995 construction (2012)",
-        "Property currently exempt from CA state rent cap (AB 1482) due to 15-year rolling exemption",
-        "Will become subject to AB 1482 state rent cap in 2027 (5% + CPI, max 10%)",
-        "High regulatory certainty with clear exemption path and no pending local legislation"
+        "Building is exempt from Beverly Hills rent control due to 2013 construction date",
+        "Subject to state AB 1482 rent cap (5% + CPI, max 10%) for approximately 2 more years until 15-year age exemption expires",
+        "No pending local or state rent control expansions affecting this asset class",
+        "Clear regulatory path with predictable rent growth constraints through 2028"
       ],
       "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
-          "name": "California Costa-Hawkins Act (1995)",
-          "basis": "State preemption - exempts post-February 1, 1995 construction",
-          "status": "applies"
+          "name": "California AB 1482 Tenant Protection Act",
+          "basis": "State law applying to buildings 15+ years old (rolling threshold)",
+          "status": "potentially_applies"
         },
         {
           "type": "State",
-          "name": "California AB 1482 Tenant Protection Act",
-          "basis": "State law - 15-year rolling exemption",
-          "status": "pending"
+          "name": "Costa-Hawkins Rental Housing Act",
+          "basis": "State preemption exempting post-February 1, 1995 construction",
+          "status": "applies"
         },
         {
           "type": "City",
           "name": "Beverly Hills Rent Stabilization Ordinance",
-          "basis": "Local ordinance - exempts post-February 1, 1995 construction",
+          "basis": "Local rent control applying to buildings built before February 1, 1995",
           "status": "does_not_apply"
         }
       ],
       "rentControl": [
         {
-          "jurisdiction": "California (State)",
-          "layerType": "State Preemption",
-          "statusLabel": "Costa-Hawkins Exemption",
-          "badge": "Does Not Apply",
-          "ruleDateBasis": "Certificate of occupancy issued after February 1, 1995",
-          "formula": "No rent control restrictions - market rate pricing permitted",
-          "summary": "Costa-Hawkins Act exempts buildings with certificate of occupancy issued after February 1, 1995 from local rent control ordinances",
-          "applicability": "Property built in 2012 is permanently exempt from Beverly Hills RSO under Costa-Hawkins",
-          "investmentImplications": "Full rent control exemption provides maximum pricing flexibility and eliminates local RSO compliance requirements. Costa-Hawkins preemption is permanent and cannot be overridden by local ordinances.",
-          "certainty": "High - statutory exemption",
-          "ageThreshold": "February 1, 1995",
-          "sources": [
-            {
-              "title": "Costa-Hawkins Rental Housing Act Text",
-              "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?chapter=2.7.&division=3.&lawCode=CIV&part=4.&title=5.",
-              "type": "Official",
-              "note": "Primary statutory text"
-            }
-          ]
-        },
-        {
-          "jurisdiction": "California (State)",
-          "layerType": "State Rent Cap",
-          "statusLabel": "AB 1482 Future Application",
-          "badge": "Pending",
-          "ruleDateBasis": "15-year rolling exemption from certificate of occupancy",
-          "formula": "5% + regional CPI or 10%, whichever is lower",
-          "summary": "AB 1482 applies to buildings 15+ years old on rolling basis. Property will become subject in 2027.",
-          "applicability": "Building currently exempt until 2027, then subject to state rent cap formula",
-          "investmentImplications": "State rent cap will apply starting 2027, limiting annual increases to 5% + CPI (max 10%). Current Los Angeles area CPI component is approximately 3.9%, creating effective cap around 8.9% annually once applicable.",
-          "certainty": "High - statutory timeline",
-          "ageThreshold": "15 years rolling",
-          "sources": [
-            {
-              "title": "AB 1482 California Tenant Protection Act",
-              "url": "https://oag.ca.gov/tenants",
-              "type": "Official",
-              "note": "California Attorney General guidance"
-            }
-          ]
-        },
-        {
           "jurisdiction": "Beverly Hills",
-          "layerType": "Local Rent Control",
-          "statusLabel": "RSO Exemption",
+          "layerType": "Local Rent Stabilization",
+          "statusLabel": "Exempt - New Construction",
           "badge": "Does Not Apply",
-          "ruleDateBasis": "Buildings constructed after February 1, 1995 exempt",
-          "formula": "Not applicable - property exempt",
-          "summary": "Beverly Hills RSO applies only to buildings constructed before February 1, 1995",
-          "applicability": "Property permanently exempt from Beverly Hills RSO due to 2012 construction",
-          "investmentImplications": "Complete exemption from local rent stabilization requirements including registration, annual rent increase limits, and just-cause eviction protections. No local compliance obligations.",
-          "certainty": "High - municipal code exemption",
-          "ageThreshold": "February 1, 1995",
+          "ruleDateBasis": "February 1, 1995",
+          "formula": "N/A - Exempt",
+          "summary": "Beverly Hills RSO applies only to buildings built before February 1, 1995. This 2013 building is exempt under Costa-Hawkins protection for new construction.",
+          "applicability": "Building completed in 2013 is exempt from local rent control under Costa-Hawkins new construction exemption",
+          "investmentImplications": "Provides maximum pricing flexibility with no local rent increase caps, registration requirements, or eviction restrictions. Landlord retains full market-rate pricing power.",
+          "certainty": "High",
+          "ageThreshold": "Pre-February 1, 1995",
           "sources": [
             {
               "title": "Beverly Hills Rent Stabilization Ordinance",
               "url": "https://www.beverlyhills.org/1098/Rent-Stabilization-Ordinance",
               "type": "Official",
-              "note": "Municipal ordinance text"
+              "note": "Confirms RSO applies only to buildings constructed prior to February 1, 1995"
+            },
+            {
+              "title": "Costa-Hawkins New Construction Exemption",
+              "url": "https://caanet.org/topics/costa-hawkins-act/",
+              "type": "Legal/Policy",
+              "note": "State law exempts post-1995 construction from local rent control"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "California",
+          "layerType": "State Rent Cap",
+          "statusLabel": "Currently Exempt - Becomes Subject 2028",
+          "badge": "Potentially Applies",
+          "ruleDateBasis": "15-year rolling threshold (currently exempt until 2028)",
+          "formula": "5% + regional CPI, capped at 10% annually",
+          "summary": "AB 1482 applies to buildings 15+ years old on a rolling basis. This 2013 building becomes subject in 2028 (15 years from construction).",
+          "applicability": "Building will become subject to AB 1482 rent caps in 2028 when it reaches 15-year age threshold",
+          "investmentImplications": "Currently exempt providing full market pricing flexibility. Beginning 2028, rent increases will be capped at 5% + CPI (max 10%) and just-cause eviction requirements will apply. Transition represents material constraint on rent growth.",
+          "certainty": "High",
+          "ageThreshold": "15 years from certificate of occupancy (rolling)",
+          "sources": [
+            {
+              "title": "California AB 1482 Tenant Protection Act",
+              "url": "https://dcba.lacounty.gov/portfolio/rent-increases/",
+              "type": "Official",
+              "note": "State law with 15-year rolling exemption for new construction"
+            },
+            {
+              "title": "2025-26 AB 1482 CPI Rates",
+              "url": "https://caanet.org/all-cpi-figures-for-2024-ab-1482-rent-increases-now-available/",
+              "type": "Legal/Policy",
+              "note": "Current rates: 5% + 3.0% CPI = 8.0% cap for LA area (Aug 2025-Jul 2026)"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "partial_preemption",
-        "localRegulationAuthority": "Limited by Costa-Hawkins for post-1995 construction",
-        "localRuleStrength": "Not applicable to subject property",
+        "localRegulationAuthority": "Costa-Hawkins limits local authority - cities may regulate pre-1995 buildings only",
+        "localRuleStrength": "Strong local RSO for covered buildings, but this property is exempt",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "Costa-Hawkins preempts local, AB 1482 provides state baseline",
-        "assetLevelDependency": "moderate",
-        "primaryRule": "Costa-Hawkins exemption currently governing",
-        "overlayRules": "AB 1482 will apply in 2027",
-        "structuralInterpretation": "Clear exemption hierarchy with defined transition point",
+        "overlappingRegime": "State Costa-Hawkins exemption overrides local RSO for post-1995 construction",
+        "assetLevelDependency": "high",
+        "primaryRule": "Costa-Hawkins new construction exemption",
+        "overlayRules": "AB 1482 rent cap (future applicability in 2028)",
+        "structuralInterpretation": "Clear exemption hierarchy - state preemption protects new construction from local rent control",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Low risk due to statutory clarity and high regulatory certainty"
+        "applicabilityRiskNote": "Regulatory transition in 2028 when building becomes subject to AB 1482"
       },
       "finalApplicability": {
-        "classification": "Currently unregulated, transitioning to state rent cap in 2027",
-        "primaryGoverningRule": "Costa-Hawkins Act exemption (permanent)",
-        "overlayRules": "AB 1482 state rent cap (effective 2027)",
-        "reasoning": "Property built in 2012 is permanently exempt from local Beverly Hills RSO under Costa-Hawkins. Currently exempt from AB 1482 due to 15-year rolling provision, but will become subject to state rent cap in 2027.",
-        "ageInterpretation": "14 years old as of 2026, crossing 15-year threshold in 2027",
+        "classification": "Currently Exempt - Pending State Regulation",
+        "primaryGoverningRule": "Costa-Hawkins new construction exemption (post-Feb 1995)",
+        "overlayRules": "AB 1482 state rent cap becomes applicable in 2028",
+        "reasoning": "2013 construction date places building clearly within Costa-Hawkins protection from local rent control. However, AB 1482's 15-year rolling exemption means state rent caps will apply beginning in 2028.",
+        "ageInterpretation": "13 years old (2013 construction) - exempt from all rent control for ~2 more years",
         "confidenceLevel": "High",
         "riskFlags": [
-          "State rent cap application begins 2027",
-          "Transition from unregulated to regulated mid-hold period"
+          "Regulatory transition in 2028 to AB 1482 coverage"
         ],
-        "underwritingRentGrowthFormula": "2024-2026: Market rate (no cap); 2027+: min(5% + regional_CPI, 10%)",
-        "investmentImplications": "Property currently enjoys maximum rent growth flexibility with no regulatory constraints. Beginning 2027, rent increases will be capped at AB 1482 formula (currently ~8.9% based on LA area CPI). This regulatory transition occurs mid-hold period for typical 5-year investment horizon. No risk of more restrictive local rent control due to Costa-Hawkins preemption. Proposition 33 defeated in November 2024, confirming Costa-Hawkins remains in effect."
+        "underwritingRentGrowthFormula": "Market rate through 2027; 5% + CPI (max 10%) starting 2028",
+        "investmentImplications": "Property currently enjoys maximum pricing flexibility with no rent increase caps or eviction restrictions. However, underwriting should account for material regulatory change in 2028 when AB 1482 rent caps (currently ~8% annually) and just-cause eviction requirements will apply. This transition represents a structural constraint on long-term rent growth that should be factored into acquisition pricing and hold period analysis."
       },
       "legislation": [
         {
           "jurisdiction": "California",
-          "layerType": "State Ballot Measure",
-          "title": "Proposition 33 - Justice for Renters Act",
-          "status": "Failed November 2024",
-          "date": "November 5, 2024",
-          "summary": "Would have repealed Costa-Hawkins Act, allowing local rent control on all housing types including post-1995 construction",
-          "forwardLooking": "Defeated 62% to 38%, confirming Costa-Hawkins protections remain in place",
-          "whyItMatters": "Failure preserves permanent exemption from Beverly Hills RSO for post-1995 properties",
+          "layerType": "State",
+          "title": "AB 1157 - Enhanced Rent Control (Failed 2025)",
+          "status": "Failed - Stalled in Committee",
+          "date": "May 8, 2025",
+          "summary": "Would have reduced AB 1482 rent caps from current 5%+CPI to 2%+CPI and eliminated single-family home exemptions",
+          "forwardLooking": "Bill failed to advance from Assembly committee and is dead for remainder of 2025 legislative cycle",
+          "whyItMatters": "Demonstrates ongoing legislative pressure for stricter rent control, but political resistance remains strong",
           "sources": [
             {
-              "title": "CalMatters Prop 33 Results",
-              "url": "https://calmatters.org/politics/2024/11/california-election-results-prop-33-rent-control/",
-              "type": "Secondary",
-              "note": "Official election results"
+              "title": "CAA Derails AB 1157 Rent Control Measure",
+              "url": "https://caanet.org/caa-derails-rent-control-measure-as-push-stalls-in-legislature/",
+              "type": "Legal/Policy",
+              "note": "Confirms bill was pulled from consideration and stalled for 2025"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "single",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Market rate 2024-2026, state rent cap 2027+ at estimated 8.9%",
-          "regulatoryAssumption": "Costa-Hawkins exemption maintained, AB 1482 applies year 4"
-        },
-        "recommendation": "GO",
-        "keyCondition": "Property benefits from Costa-Hawkins exemption providing rent growth flexibility through 2026, with predictable state rent cap application starting 2027 at manageable levels (~8.9% annually)."
+      "regulatoryOutcome": {
+        "hasPendingRegulation": true,
+        "pendingItems": [
+          {
+            "name": "AB 1482 Age Threshold Transition (2028)",
+            "ifPasses": {
+              "cap": "5% + CPI annually (currently ~8% in LA area), maximum 10%",
+              "baseRent": "Rent in place when law becomes applicable (2028)",
+              "vacancyDecontrol": "Permitted - landlord may reset rent to market upon vacancy",
+              "effectiveDate": "2028 (when building reaches 15-year age threshold)",
+              "exemptions": "None - all units in building become subject to rent cap and just-cause eviction requirements"
+            },
+            "ifFails": {
+              "cap": "No rent control regulation",
+              "summary": "Continued market-rate pricing flexibility with no state or local rent increase limitations"
+            },
+            "polling": "N/A - automatic statutory transition based on building age",
+            "status": "Certain - statutory transition occurs automatically when building reaches 15-year threshold in 2028"
+          }
+        ]
       }
     },
     "301westaveaustintx78701": {
       "buildingCharacteristics": {
         "yearBuilt": 2018,
         "estimatedAge": 8,
-        "source": "Multiple MLS listings and real estate databases confirm 2018 construction for The Independent building",
+        "source": "Multiple MLS sources including Zillow, Stiles Real Estate Agency, HAR.com",
         "confidence": "High",
-        "notes": "The Independent is a luxury high-rise condominium building also known as the 'Jenga Tower,' completed in 2018 with 363 total residences"
+        "notes": "Consistently reported 2018 construction across all property records for The Independent at 301 West Ave"
       },
       "investmentSummary": [
-        "Texas state preemption completely prohibits local rent control ordinances, ensuring maximum rent growth potential",
-        "No material pending legislation threatens the unregulated rent environment through 2030",
-        "Property built in 2018 faces no age-based regulatory thresholds that would trigger rent stabilization",
-        "Austin's recent housing supply surge has driven median rents down 16% from 2021-2026, but regulatory environment remains investor-friendly"
+        "No rent control limitations - Texas Government Code Chapter 2143 prohibits all local rent control ordinances statewide",
+        "New construction (2018) makes building exempt from any future age-based rent control thresholds",
+        "Market-rate rent increases permitted with only 30-day notice requirement for month-to-month tenancies",
+        "State preemption remains strong with no pending legislation to repeal rent control ban",
+        "Luxury high-rise condominium building offers premium investment fundamentals in growing Austin market"
       ],
       "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
-          "name": "Texas",
-          "basis": "Texas Government Code Chapter 2143",
+          "name": "Texas Government Code Chapter 2143",
+          "basis": "Statewide rent control preemption",
           "status": "applies"
         },
         {
           "type": "County",
           "name": "Travis County",
-          "basis": "No local rent control authority under state preemption",
+          "basis": "No independent rent regulation authority",
           "status": "does_not_apply"
         },
         {
           "type": "City",
           "name": "Austin",
-          "basis": "No local rent control authority under state preemption",
+          "basis": "Prohibited by state preemption law",
           "status": "does_not_apply"
         }
       ],
@@ -483,633 +477,765 @@
         {
           "jurisdiction": "Texas",
           "layerType": "State Preemption",
-          "statusLabel": "Complete Prohibition",
+          "statusLabel": "Prohibited",
           "badge": "Does Not Apply",
           "ruleDateBasis": "Enacted 1993",
-          "formula": "No rent control permitted - free market pricing",
-          "summary": "Texas Government Code Chapter 2143 declares all municipal and county rent control ordinances 'void' and prohibits establishment of new rent control policies",
-          "applicability": "Applies statewide to all residential rental housing, including luxury condominiums like 301 West Ave",
-          "investmentImplications": "Provides maximum rent growth flexibility with only contractual lease limitations. Landlords may increase rents without statutory caps, subject only to 30-day notice requirements for month-to-month tenancies.",
-          "certainty": "High - established law with strong political support",
-          "ageThreshold": "None - preemption applies regardless of building age",
+          "formula": "No rent caps permitted",
+          "summary": "Texas Government Code Chapter 2143 declares all municipal and county rent control ordinances 'void' and prohibits their enactment",
+          "applicability": "Applies to all residential rental housing statewide including 301 West Ave",
+          "investmentImplications": "Property benefits from complete rent control preemption, allowing market-based rent setting with only 30-day notice requirements for month-to-month tenancies. No regulatory caps on annual rent increases.",
+          "certainty": "Definitive - established state law",
+          "ageThreshold": "N/A - preemption applies to all buildings regardless of construction date",
           "sources": [
             {
               "title": "Texas Rent Control Laws 2026",
               "url": "https://www.hemlane.com/resources/texas-rent-control-laws/",
-              "type": "Secondary",
-              "note": "Comprehensive overview of Texas preemption law"
+              "type": "Legal/Policy",
+              "note": "Comprehensive analysis of Texas Government Code Chapter 2143"
             },
             {
-              "title": "Texas State Law Library - Rent",
+              "title": "Rent - Landlord/Tenant Law - Texas State Law Library",
               "url": "https://guides.sll.texas.gov/landlord-tenant-law/rent",
               "type": "Official",
-              "note": "Official state guidance on rent regulation"
+              "note": "Official state guidance on rent regulation limitations"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Austin",
+          "layerType": "Local Ordinance",
+          "statusLabel": "Prohibited by State Law",
+          "badge": "Does Not Apply",
+          "ruleDateBasis": "State preemption since 1993",
+          "formula": "Cannot enact rent control per state law",
+          "summary": "Austin is prohibited from enacting any form of rent control or stabilization ordinance under Texas Government Code Chapter 2143",
+          "applicability": "State preemption overrides any potential local rent control measures",
+          "investmentImplications": "Austin cannot implement rent control even during housing emergencies without governor approval, which has never occurred including during Hurricane Harvey (2017) and COVID-19. Property enjoys regulatory certainty.",
+          "certainty": "Definitive - state law supremacy",
+          "ageThreshold": "N/A - preemption prevents age-based thresholds",
+          "sources": [
+            {
+              "title": "Why is there no 'rent control' in Texas?",
+              "url": "https://www.kxan.com/news/texas/why-is-there-no-rent-control-in-texas/",
+              "type": "Secondary",
+              "note": "Local Austin perspective on state preemption barriers"
+            },
+            {
+              "title": "Texas Rent Control (Laws, Rental Limit & Tenant Rights)",
+              "url": "https://victorsteffen.com/guides/austin-texas-rent-control-laws/",
+              "type": "Legal/Policy",
+              "note": "Austin-specific analysis of state law constraints"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "preempts_local",
-        "localRegulationAuthority": "No authority - completely preempted by state law",
-        "localRuleStrength": "None permitted",
+        "localRegulationAuthority": "None - completely preempted by state law",
+        "localRuleStrength": "N/A",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "None - single-layer state preemption",
+        "overlappingRegime": "Single state-level preemption",
         "assetLevelDependency": "low",
-        "primaryRule": "Texas Government Code Chapter 2143 rent control prohibition",
-        "overlayRules": "None applicable",
-        "structuralInterpretation": "Texas maintains one of the most comprehensive rent control preemption regimes in the US, with only extremely limited exceptions for declared disaster emergencies with governor approval",
+        "primaryRule": "Texas Government Code Chapter 2143 - complete prohibition on local rent control",
+        "overlayRules": "Limited disaster emergency exception requiring governor approval",
+        "structuralInterpretation": "Texas maintains one of the strongest rent control preemption laws nationally, with no exceptions for housing emergencies, vacancy rates, or local conditions",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Minimal risk - preemption law is well-established with strong industry support"
+        "applicabilityRiskNote": "Minimal regulatory risk due to comprehensive state preemption with strong political support from real estate lobby"
       },
       "finalApplicability": {
-        "classification": "Unregulated - State Preempted",
-        "primaryGoverningRule": "Texas Government Code Chapter 2143 - complete rent control prohibition",
-        "overlayRules": "None",
-        "reasoning": "Texas law explicitly voids all local rent control ordinances and prevents cities and counties from enacting rent stabilization policies. The 2018 construction date is irrelevant under Texas law as preemption applies to all rental housing regardless of age.",
-        "ageInterpretation": "Building age irrelevant - Texas preemption applies universally",
-        "confidenceLevel": "High",
+        "classification": "Rent Control Prohibited",
+        "primaryGoverningRule": "Texas Government Code Chapter 2143 - statewide rent control preemption",
+        "overlayRules": "30-day notice requirement for rent increases on month-to-month tenancies",
+        "reasoning": "State law completely prohibits any local rent control ordinances. 2018 construction date is irrelevant as preemption applies to all buildings. Limited disaster emergency exception requires governor approval and has never been invoked.",
+        "ageInterpretation": "Building age immaterial under Texas preemption law",
+        "confidenceLevel": "Very High",
         "riskFlags": [],
-        "underwritingRentGrowthFormula": "Market-driven pricing with no statutory caps; 30-day notice required for month-to-month lease increases",
-        "investmentImplications": "Optimal regulatory environment for rental investment. No rent growth constraints beyond lease terms and market conditions. State preemption provides long-term regulatory certainty. Recent Austin housing supply increases may moderate market rent growth but do not create regulatory constraints."
+        "underwritingRentGrowthFormula": "Market rate increases with 30-day notice (no regulatory caps)",
+        "investmentImplications": "Property enjoys complete freedom from rent control regulations under strong state preemption law. Only constraints are standard lease terms and 30-day notice requirements for month-to-month tenancies. Recent construction (2018) and luxury positioning provide additional protection against any future regulatory changes."
       },
       "legislation": [
         {
           "jurisdiction": "Texas",
-          "layerType": "State",
-          "title": "No Material Pending Legislation",
-          "status": "Monitored",
-          "date": "2025 Legislative Session Concluded",
-          "summary": "The 2025 Texas legislative session concluded without any viable rent control repeal bills advancing. HB 2904 proposing rent increase restrictions was referred to committee but did not advance.",
-          "forwardLooking": "No credible legislative threats to rent control preemption through 2030 given Republican control of state government",
-          "whyItMatters": "Confirms continued regulatory stability for rental investments in Texas markets",
+          "layerType": "State Preemption",
+          "title": "Texas Government Code Chapter 2143",
+          "status": "Active since 1993",
+          "date": "1993",
+          "summary": "Prohibits municipalities and counties from establishing rent control ordinances, declaring existing rent control 'void'",
+          "forwardLooking": "Strong political support continues with real estate lobby opposition to any repeal efforts",
+          "whyItMatters": "Provides comprehensive protection against local rent control measures statewide",
           "sources": [
-            {
-              "title": "2025 Texas Tenant/Landlord Legislation",
-              "url": "https://txtenants.org/2025texaslegislation/",
-              "type": "Legal/Policy",
-              "note": "Tenant advocacy tracking of failed 2025 legislation"
-            },
             {
               "title": "Texas Rent Control Laws 2026",
               "url": "https://www.hemlane.com/resources/texas-rent-control-laws/",
+              "type": "Legal/Policy",
+              "note": "Analysis of failed 2021 repeal attempt"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Texas",
+          "layerType": "Eviction Reform",
+          "title": "Senate Bill 38 - Streamlined Evictions",
+          "status": "Effective January 1, 2026",
+          "date": "2025",
+          "summary": "Streamlines eviction process allowing summary judgments without trial, electronic notice delivery, and faster proceedings",
+          "forwardLooking": "May accelerate eviction timelines and reduce tenant procedural protections",
+          "whyItMatters": "Enhances landlord rights in eviction proceedings but does not affect rent control prohibition",
+          "sources": [
+            {
+              "title": "SB 38: How a new property rights law changes the game for Texas renters",
+              "url": "https://www.fox7austin.com/news/sb-38-how-new-property-rights-law-changes-game-texas-renters",
               "type": "Secondary",
-              "note": "Analysis of failed legislative efforts"
+              "note": "Analysis of new eviction procedures effective 2026"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "single",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Market-driven pricing in unregulated environment, factoring recent Austin supply increases",
-          "regulatoryAssumption": "Continued state preemption with no rent control implementation"
-        },
-        "downside": null,
-        "upside": null,
-        "recommendation": "GO",
-        "keyCondition": "Verify property is not subject to affordable housing deed restrictions or other contractual rent limitations that could override the favorable regulatory environment"
+      "regulatoryOutcome": {
+        "hasPendingRegulation": false,
+        "naReason": "State preemption under Texas Government Code Chapter 2143 with no active repeal legislation or pending regulatory changes. Failed 2021 legislative attempt to allow local rent control demonstrates continued strong political opposition to any rent regulation."
       }
     },
     "200nmichiganavechicagoil60601": {
       "buildingCharacteristics": {
-        "yearBuilt": null,
-        "estimatedAge": null,
-        "source": "",
-        "confidence": "Not Available",
-        "notes": "Property records search did not yield definitive construction date information from available public records databases"
+        "yearBuilt": 2016,
+        "estimatedAge": 10,
+        "source": "Multiple sources confirm construction began in 2014 and the MILA building was completed in 2016",
+        "confidence": "High",
+        "notes": "The MILA building at 200 N Michigan Ave is a modern 41-story luxury apartment tower that replaced a 50% occupied six-story office building. It received LEED Gold certification and contains 402 residential units with 22,000 sq ft of retail space."
       },
       "investmentSummary": [
-        "Illinois state law completely prohibits local rent control through the Rent Control Preemption Act of 1997",
-        "No rent increase caps exist - landlords can raise rent to any level upon lease expiration",
-        "Chicago RLTO provides notice requirements but no rent growth limitations",
-        "Pending state legislation could change regulatory landscape but has stalled in previous attempts"
+        "State preemption under Illinois Rent Control Preemption Act prohibits all local rent control ordinances statewide",
+        "No rent increase caps or limitations - landlords may raise rent by any amount with proper 30-day notice",
+        "Chicago RLTO imposes procedural requirements (notice periods, security deposit rules) but no rent growth constraints",
+        "Pending Tenant Protection Act could overturn preemption and allow local rent control policies if passed",
+        "Modern 2016 construction provides immunity from all age-based rent control thresholds in other jurisdictions"
       ],
       "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
-          "name": "Illinois Rent Control Preemption Act",
-          "basis": "50 ILCS 825 (1997)",
+          "name": "Illinois Rent Control Preemption Act (50 ILCS 825)",
+          "basis": "Statewide prohibition enacted 1997",
           "status": "applies"
+        },
+        {
+          "type": "County",
+          "name": "Cook County RTLO",
+          "basis": "Procedural tenant protections, effective June 1, 2021",
+          "status": "does_not_apply"
         },
         {
           "type": "City",
           "name": "Chicago RLTO",
-          "basis": "Chicago Municipal Code Chapter 5-12",
+          "basis": "Municipal procedural ordinance",
           "status": "applies"
         }
       ],
       "rentControl": [
         {
-          "jurisdiction": "Illinois",
+          "jurisdiction": "Illinois State",
           "layerType": "State Preemption",
-          "statusLabel": "Complete Ban on Local Rent Control",
+          "statusLabel": "Complete Prohibition",
           "badge": "Applies",
           "ruleDateBasis": "Enacted 1997",
-          "formula": "No rent increase caps permitted",
-          "summary": "Illinois Rent Control Preemption Act (50 ILCS 825) prohibits all municipalities from enacting, maintaining, or enforcing any ordinance controlling rent amounts for residential or commercial properties",
-          "applicability": "Applies to all rental properties statewide",
-          "investmentImplications": "Provides maximum rent growth flexibility for landlords. No local jurisdiction can impose rent caps or stabilization measures. Landlords can adjust rents to market rates upon lease expiration without regulatory constraints.",
-          "certainty": "High - established law since 1997",
-          "ageThreshold": "None",
+          "formula": "No rent control permitted - landlords may raise rent without limitation",
+          "summary": "The Illinois Rent Control Preemption Act prohibits all local governments from enacting rent control ordinances. No rent increase caps or limitations exist statewide.",
+          "applicability": "Applies to all residential rental properties in Illinois",
+          "investmentImplications": "Provides maximum rent growth flexibility for landlords. No local jurisdiction can implement rent caps or stabilization measures without state legislative action to repeal the preemption act.",
+          "certainty": "Definitive - established state law since 1997",
+          "ageThreshold": "N/A - applies regardless of building age",
           "sources": [
             {
               "title": "Illinois Rent Control Laws in 2026",
               "url": "https://www.hemlane.com/resources/illinois-rent-control-laws/",
-              "type": "Secondary",
-              "note": "Comprehensive overview of Illinois preemption law"
-            },
-            {
-              "title": "Rent Control in Chicago, Illinois: Explained",
-              "url": "https://www.domu.com/landlord-resources/does-chicago-have-rent-controlled-apartments",
-              "type": "Secondary",
-              "note": "Details on Chicago's inability to enact rent control"
+              "type": "Legal/Policy",
+              "note": "Confirms statewide prohibition and current legal framework"
             }
           ]
         },
         {
           "jurisdiction": "Chicago",
-          "layerType": "Local Tenant Protection",
-          "statusLabel": "Notice Requirements Only",
+          "layerType": "Municipal Ordinance",
+          "statusLabel": "Procedural Requirements Only",
           "badge": "Applies",
-          "ruleDateBasis": "RLTO enacted 1986, amended regularly",
-          "formula": "Notice requirements: 30 days (<6 months tenancy), 60 days (6 months-3 years), 120 days (>3 years)",
-          "summary": "Chicago RLTO provides tenant protections including advance notice for rent increases, security deposit regulations, and habitability standards, but cannot impose rent caps due to state preemption",
-          "applicability": "Most residential rentals except owner-occupied buildings with 6 or fewer units",
-          "investmentImplications": "Imposes procedural requirements and tenant protection obligations but does not limit rent growth. Landlords must provide proper notice periods and comply with security deposit and habitability rules, but can set rents at market levels.",
-          "certainty": "High - established ordinance",
-          "ageThreshold": "None for rent increase authority",
+          "ruleDateBasis": "RLTO enacted 1986, no rent control provisions",
+          "formula": "No rent caps - only notice and procedural requirements apply",
+          "summary": "Chicago RLTO provides tenant protections through notice requirements, security deposit rules, and landlord obligations but cannot impose rent control due to state preemption.",
+          "applicability": "Applies to most rental properties in Chicago except owner-occupied buildings with 6 or fewer units",
+          "investmentImplications": "Requires compliance with notice periods (30-120 days based on tenancy length), security deposit procedures, and RLTO summary disclosure requirements. No impact on rent growth potential, only procedural compliance costs.",
+          "certainty": "Definitive - established municipal law",
+          "ageThreshold": "N/A - applies regardless of building age",
           "sources": [
             {
-              "title": "Chicago residential landlord-tenant ordinance or RLTO",
-              "url": "https://www.illinoislegalaid.org/legal-information/chicago-residential-landlord-tenant-ordinance-or-rlto",
-              "type": "Legal/Policy",
-              "note": "Official explanation of RLTO provisions"
+              "title": "Chicago Residential Landlord and Tenant Ordinance",
+              "url": "https://www.chicago.gov/city/en/depts/doh/provdrs/landlords/svcs/residential-landlord-and-tenant-ordinance.html",
+              "type": "Official",
+              "note": "Official City of Chicago RLTO information"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "preempts_local",
-        "localRegulationAuthority": "Prohibited by state law",
-        "localRuleStrength": "Notice and procedural requirements only",
+        "localRegulationAuthority": "Illinois state law completely prohibits local rent control ordinances",
+        "localRuleStrength": "None - state preemption is absolute",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "State preemption overrides local authority",
+        "overlappingRegime": "Chicago RLTO provides procedural requirements only",
         "assetLevelDependency": "low",
-        "primaryRule": "Illinois Rent Control Preemption Act prohibits all local rent regulation",
-        "overlayRules": "Chicago RLTO provides tenant protections but no rent caps",
-        "structuralInterpretation": "Complete state preemption model - no local rent control authority permitted",
-        "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Minimal regulatory risk due to comprehensive state preemption"
+        "primaryRule": "Illinois Rent Control Preemption Act (50 ILCS 825)",
+        "overlayRules": "Chicago RLTO (procedural only), Cook County RTLO (does not apply within Chicago)",
+        "structuralInterpretation": "Illinois maintains complete state preemption preventing any local rent control. Chicago RLTO can only regulate procedural aspects of landlord-tenant relationships.",
+        "boroughInterpretation": "N/A - Chicago operates as single municipal jurisdiction",
+        "applicabilityRiskNote": "State preemption provides legal certainty that no local rent control can be implemented without legislative action at state level."
       },
       "finalApplicability": {
-        "classification": "State-Preempted / Unregulated Rent Growth",
+        "classification": "No Rent Control - State Preemption",
         "primaryGoverningRule": "Illinois Rent Control Preemption Act (50 ILCS 825)",
-        "overlayRules": "Chicago RLTO procedural requirements",
-        "reasoning": "Illinois law completely prohibits municipalities from enacting rent control. Chicago cannot impose rent caps or stabilization measures regardless of building age or other characteristics.",
-        "ageInterpretation": "Building age irrelevant for rent control purposes",
-        "confidenceLevel": "High",
-        "riskFlags": [],
-        "underwritingRentGrowthFormula": "No regulatory constraints on rent increases (market-rate pricing permitted)",
-        "investmentImplications": "Property operates in deregulated rent environment with maximum pricing flexibility. Landlords can adjust rents to market rates upon lease expiration. Only compliance requirements are RLTO notice periods and procedural protections, which do not limit rent growth potential."
+        "overlayRules": "Chicago RLTO (procedural requirements only)",
+        "reasoning": "Illinois state law completely prohibits local rent control ordinances. The 2016 construction date is irrelevant as no age-based thresholds exist. Chicago RLTO provides only procedural tenant protections without rent growth limitations.",
+        "ageInterpretation": "Building age immaterial - state preemption applies regardless of construction date",
+        "confidenceLevel": "High - definitive legal framework",
+        "riskFlags": [
+          "Pending Tenant Protection Act could overturn state preemption if passed"
+        ],
+        "underwritingRentGrowthFormula": "Unlimited rent growth subject only to market constraints and 30-day notice requirement",
+        "investmentImplications": "This property enjoys maximum rent growth flexibility under Illinois law with no caps, formulas, or stabilization measures applicable. The state preemption provides legal certainty against local rent control implementation. Only procedural compliance with Chicago RLTO is required (notice periods, security deposits, landlord disclosure obligations). The 2016 construction date provides additional insulation from age-based rent control thresholds common in other states. Primary risk is potential legislative change at state level to repeal preemption act."
       },
       "legislation": [
         {
-          "jurisdiction": "Illinois",
-          "layerType": "State Preemption Repeal",
+          "jurisdiction": "Illinois State",
+          "layerType": "Pending Legislation",
           "title": "Tenant Protection Act (HB 3874)",
-          "status": "Pending/Stalled",
-          "date": "Introduced 2021, status unclear in 2026",
-          "summary": "Would repeal the Rent Control Preemption Act and institute statewide rent control with 5% annual cap, 180-day notice for increases, and allow local governments to enact additional rent regulations",
-          "forwardLooking": "If passed, would fundamentally alter Illinois rent regulation by allowing local rent control and imposing statewide caps",
-          "whyItMatters": "Could transform investment economics by introducing rent growth constraints for the first time since 1997",
+          "status": "Introduced 2021, still pending in legislature as of 2026",
+          "date": "Originally introduced 2021",
+          "summary": "Would overturn the Rent Control Preemption Act and allow local governments to enact rent control policies. Includes provisions for 5% annual rent increase cap, 180-day notice for larger increases, and prohibition of rent increases in first 12 months of tenancy.",
+          "forwardLooking": "If passed, would fundamentally change Illinois rent regulation by allowing local rent control ordinances for the first time since 1997",
+          "whyItMatters": "Could transform the regulatory landscape by permitting Chicago and other municipalities to implement rent stabilization measures",
           "sources": [
             {
-              "title": "Illinois Rent Control Laws (2025): Everything You Need to Know",
-              "url": "https://www.leaserunner.com/laws/illinois-rent-control-laws",
-              "type": "Secondary",
-              "note": "Details on proposed Tenant Protection Act provisions"
+              "title": "Illinois Rent Control Laws in 2026",
+              "url": "https://www.hemlane.com/resources/illinois-rent-control-laws/",
+              "type": "Legal/Policy",
+              "note": "Confirms bill status and key provisions"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "single",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Market-rate pricing in deregulated environment",
-          "regulatoryAssumption": "Illinois Rent Control Preemption Act remains in effect"
-        },
-        "recommendation": "GO",
-        "keyCondition": "Illinois maintains rent control preemption law prohibiting local rent regulation"
+      "regulatoryOutcome": {
+        "hasPendingRegulation": true,
+        "pendingItems": [
+          {
+            "name": "Illinois Tenant Protection Act (HB 3874)",
+            "ifPasses": {
+              "cap": "5% annual rent increase limit statewide",
+              "baseRent": "Current rent levels would become baseline for future calculations",
+              "vacancyDecontrol": "Unknown - bill details unclear on vacancy provisions",
+              "effectiveDate": "To be determined upon passage",
+              "exemptions": "Likely exemptions for new construction, small landlords"
+            },
+            "ifFails": {
+              "cap": "No rent control - unlimited rent increases with proper notice",
+              "summary": "State preemption remains in effect, no local rent control permitted"
+            },
+            "polling": "No specific polling data available for Illinois Tenant Protection Act",
+            "status": "Bill introduced 2021, still pending in Illinois General Assembly as of 2026"
+          }
+        ]
       }
     },
     "1600ne1stavemiamifl33132": {
       "buildingCharacteristics": {
         "yearBuilt": 2018,
         "estimatedAge": 8,
-        "source": "Zillow property records",
+        "source": "Multiple property listing sources (Trulia, Zillow, Redfin)",
         "confidence": "High",
-        "notes": "Multiple sources confirm 2018 construction date for Canvas condominium at 1600 NE 1st Ave"
+        "notes": "Canvas Condominium, 37-story high-rise mixed-use building in Arts & Entertainment District. Completed late 2018."
       },
       "investmentSummary": [
-        "No rent control constraints — Florida's comprehensive state preemption prohibits all local rent control ordinances",
-        "HB 1417 (2023) eliminated Miami-Dade's 60-day notice requirement for rent increases above 5%",
-        "New construction (2018) exempt from any age-based rent regulation thresholds in other jurisdictions",
-        "Strong regulatory certainty with no pending legislation threatening to introduce rent caps"
+        "No rent control or rent caps - Florida prohibits all local rent control ordinances through state preemption",
+        "HB 1417 (2023) eliminated all local tenant protection ordinances including Miami-Dade's 60-day notice requirement for 5%+ increases",
+        "Unlimited rent increases permitted with only 15-day notice for month-to-month tenancies under state law",
+        "Full market-rate pricing flexibility with minimal regulatory constraints for institutional ownership",
+        "No pending rent control legislation - all recent tenant protection bills have failed or died in committee"
       ],
       "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
-          "name": "Florida State Preemption",
-          "basis": "Florida Statute 125.0103 & HB 1417",
+          "name": "Florida Residential Landlord and Tenant Act with State Preemption",
+          "basis": "Florida Statutes Chapter 83 and HB 1417 (2023)",
           "status": "applies"
         },
         {
           "type": "County",
           "name": "Miami-Dade County",
-          "basis": "HB 1417 preemption",
+          "basis": "Local ordinances preempted by HB 1417",
           "status": "does_not_apply"
         },
         {
           "type": "City",
-          "name": "Miami",
-          "basis": "State preemption",
+          "name": "City of Miami",
+          "basis": "Local ordinances preempted by HB 1417",
           "status": "does_not_apply"
         }
       ],
       "rentControl": [
         {
-          "jurisdiction": "Florida State",
+          "jurisdiction": "Florida (State)",
           "layerType": "State Preemption",
-          "statusLabel": "Comprehensive Rent Control Ban",
-          "badge": "Applies",
-          "ruleDateBasis": "1977 (strengthened 2023)",
-          "formula": "No rent increase limits",
-          "summary": "Florida Statute 125.0103 prohibits local governments from imposing rent control ordinances except during declared housing emergencies requiring voter approval for maximum 1 year. HB 1417 (effective July 1, 2023) further preempts all local landlord-tenant regulations.",
-          "applicability": "Applies to all residential rental properties statewide",
-          "investmentImplications": "Property operates in fully deregulated market with no rent increase caps, providing maximum pricing flexibility. Recent legislative trend strengthens preemption rather than weakening it. 2018 construction date ensures no grandfathered local regulations apply.",
-          "certainty": "High",
-          "ageThreshold": "N/A - universal preemption",
+          "statusLabel": "Complete Rent Control Ban",
+          "badge": "Does Not Apply",
+          "ruleDateBasis": "HB 1417 effective July 1, 2023; F.S. 125.0103 (1977)",
+          "formula": "No rent increase limitations - market-driven pricing",
+          "summary": "Florida completely prohibits rent control through comprehensive state preemption. HB 1417 eliminated all local tenant protection ordinances statewide.",
+          "applicability": "All residential rental properties in Florida are exempt from rent control. Only emergency housing measures (requiring voter approval and limited to 1 year) are permitted.",
+          "investmentImplications": "Maximum pricing flexibility with no rent increase caps, minimal notice requirements (15 days for month-to-month), and no local tenant protection overlays. Institutional owners benefit from unrestricted market-rate rent growth potential.",
+          "certainty": "Definitive - state law preempts all local regulation",
+          "ageThreshold": "N/A - applies to all buildings regardless of age",
           "sources": [
             {
-              "title": "HB 1417 Analysis - Florida Senate",
+              "title": "HB 1417 Legislative Analysis",
               "url": "https://www.flsenate.gov/Session/Bill/2023/1417/Analyses/h1417z1.CJS.PDF",
               "type": "Official",
-              "note": "Comprehensive analysis of 2023 preemption law"
+              "note": "Preempts local tenant protection ordinances effective July 2023"
+            },
+            {
+              "title": "Florida Rent Control Preemption Overview",
+              "url": "https://nlihc.org/resource/florida-governor-signs-preemption-legislation-impacting-tenant-protections-across-state",
+              "type": "Legal/Policy",
+              "note": "Details impact on 35 cities/counties and 46 ordinances"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Miami-Dade County",
+          "layerType": "Local Ordinance (Preempted)",
+          "statusLabel": "60-Day Notice Requirement Eliminated",
+          "badge": "Does Not Apply",
+          "ruleDateBasis": "Ordinance passed March 2022, preempted July 2023",
+          "formula": "Former: 60-day notice for increases >5%; Now: State law governs (15-day notice)",
+          "summary": "Miami-Dade's 60-day notice requirement for rent increases exceeding 5% was eliminated by HB 1417 state preemption.",
+          "applicability": "No longer applies - HB 1417 preempted this local tenant protection measure along with all other local ordinances in 35 Florida jurisdictions.",
+          "investmentImplications": "Enhanced operational efficiency with uniform 15-day state notice requirements replacing patchwork of local regulations. Faster rent adjustment implementation compared to previous 60-day notice period.",
+          "certainty": "Definitive - preempted by state law",
+          "ageThreshold": "N/A - preemption applies to all properties",
+          "sources": [
+            {
+              "title": "Miami-Dade Rent Increase Notice Law Analysis",
+              "url": "https://www.bzplegal.com/post/what-is-the-miami-rent-increase-law-and-how-does-it-affect-tenants",
+              "type": "Legal/Policy",
+              "note": "Details former 60-day notice requirement"
+            },
+            {
+              "title": "Florida HB 1417 Impact Analysis",
+              "url": "https://shelterforce.org/2023/10/24/tenant-protections-undone-how-florida-organizers-are-moving-forward/",
+              "type": "Legal/Policy",
+              "note": "Explains preemption of local tenant protections"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "preempts_local",
-        "localRegulationAuthority": "None - completely preempted",
-        "localRuleStrength": "N/A",
+        "localRegulationAuthority": "None - completely preempted by state law",
+        "localRuleStrength": "Eliminated by HB 1417",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "None",
+        "overlappingRegime": "Single state-level regulatory framework",
         "assetLevelDependency": "low",
-        "primaryRule": "Florida comprehensive rent control ban",
-        "overlayRules": "None permitted",
-        "structuralInterpretation": "State law completely preempts local authority over landlord-tenant matters",
+        "primaryRule": "Florida Residential Landlord and Tenant Act with complete preemption of local ordinances",
+        "overlayRules": "None - HB 1417 eliminated all local tenant protection measures",
+        "structuralInterpretation": "Florida operates the most landlord-friendly regulatory environment in the US with comprehensive prohibition of rent control and elimination of local tenant protections",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "No regulatory risk - clear state preemption with strengthening legislative trend"
+        "applicabilityRiskNote": "Zero regulatory risk from rent control implementation. State preemption is constitutionally protected and reinforced by recent 2023 legislation."
       },
       "finalApplicability": {
-        "classification": "Unregulated Market-Rate",
-        "primaryGoverningRule": "Florida Statute 125.0103 & HB 1417 preemption",
-        "overlayRules": "None",
-        "reasoning": "Florida maintains comprehensive state preemption of rent control, strengthened by HB 1417 in 2023 which eliminated remaining local tenant protection ordinances including Miami-Dade's notice requirements. 2018 construction ensures no grandfathered local regulations apply.",
-        "ageInterpretation": "Age irrelevant under state preemption",
-        "confidenceLevel": "High",
+        "classification": "No Rent Control - State Preemption",
+        "primaryGoverningRule": "Florida Statutes Chapter 83 with HB 1417 preemption",
+        "overlayRules": "None applicable",
+        "reasoning": "Florida maintains the strongest state preemption of rent control in the US. HB 1417 (2023) eliminated all remaining local tenant protections, including Miami-Dade's former 60-day notice requirement. The 2018 construction date is irrelevant as Florida's rent control ban applies to all properties regardless of age.",
+        "ageInterpretation": "Age-neutral regulation - Florida's rent control prohibition applies to all residential properties",
+        "confidenceLevel": "Very High - definitive state law preemption",
         "riskFlags": [],
-        "underwritingRentGrowthFormula": "Market-determined (no regulatory constraints)",
-        "investmentImplications": "Property benefits from Florida's landlord-friendly regulatory environment with no rent increase caps or mandatory notice periods beyond standard lease terms. Recent legislative trend strengthens rather than weakens preemption, providing exceptional regulatory certainty for investment planning."
+        "underwritingRentGrowthFormula": "Market-driven unlimited rent growth with 15-day notice minimum",
+        "investmentImplications": "Canvas Condominium offers maximum rent growth flexibility under Florida's comprehensive preemption regime. Institutional investors benefit from unlimited rent increase potential, minimal notice requirements, and elimination of local tenant protection overlays. The property's 2018 vintage and luxury positioning in Miami's Arts District provides strong market fundamentals with zero regulatory constraints on pricing optimization."
       },
       "legislation": [
         {
-          "jurisdiction": "Florida State",
-          "layerType": "Preemption Strengthening",
+          "jurisdiction": "Florida (State)",
+          "layerType": "Preemption Legislation",
           "title": "HB 1417 - Residential Tenancies Preemption",
           "status": "Enacted July 1, 2023",
-          "date": "June 29, 2023",
-          "summary": "Preempted all local landlord-tenant regulations to state level, eliminating approximately 46 tenant protection ordinances across 35 jurisdictions including Miami-Dade's 60-day notice requirement for rent increases above 5%",
-          "forwardLooking": "No pending legislation to repeal or modify preemption. Recent failed bills (HB 31, SB 64) show limited legislative appetite for rent control.",
-          "whyItMatters": "Strengthened state preemption and eliminated local regulatory overlay that could have created compliance complexity",
+          "date": "2023-07-01",
+          "summary": "Comprehensively preempts all local tenant protection ordinances to state level, eliminating 46 ordinances across 35 jurisdictions including Miami-Dade's notice requirements.",
+          "forwardLooking": "Strengthens landlord position with uniform state regulations replacing local patchwork",
+          "whyItMatters": "Eliminated Miami-Dade's 60-day notice requirement and all other local tenant protections, creating uniform statewide landlord-tenant framework",
           "sources": [
             {
-              "title": "Florida Governor Signs Preemption Legislation",
-              "url": "https://nlihc.org/resource/florida-governor-signs-preemption-legislation-impacting-tenant-protections-across-state",
-              "type": "Legal/Policy",
-              "note": "Impact analysis of HB 1417"
+              "title": "HB 1417 Final Analysis",
+              "url": "https://www.flsenate.gov/Session/Bill/2023/1417/Analyses/h1417z1.CJS.PDF",
+              "type": "Official",
+              "note": "Complete legislative analysis of preemption provisions"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Florida (State)",
+          "layerType": "Failed Tenant Protection",
+          "title": "HB 365 - Affordable Housing Rent Stability",
+          "status": "Died in Commerce Committee June 16, 2025",
+          "date": "2025-06-16",
+          "summary": "Would have prohibited mid-lease rent increases for affordable housing units receiving public subsidies. Applied only to 13-month or shorter leases for subsidized affordable housing.",
+          "forwardLooking": "Failure demonstrates continued legislative resistance to any form of rent regulation",
+          "whyItMatters": "Most recent attempt at tenant protection failed, reinforcing Florida's anti-regulation stance even for subsidized housing",
+          "sources": [
+            {
+              "title": "HB 365 Bill Status",
+              "url": "https://www.flhouse.gov/Sections/Bills/billsdetail.aspx?BillId=80941&=&SessionId=105",
+              "type": "Official",
+              "note": "Official record showing bill died in committee"
+            },
+            {
+              "title": "HB 365 Legislative Analysis",
+              "url": "https://newsweek.com/new-florida-bill-affordable-housing-crisis-2053012",
+              "type": "Secondary",
+              "note": "Coverage of bill's limited scope and ultimate failure"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "single",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Unregulated market pricing with strong Miami fundamentals",
-          "regulatoryAssumption": "No rent control constraints under state preemption"
-        },
-        "recommendation": "GO",
-        "keyCondition": "No regulatory constraints limit rent growth under Florida's comprehensive state preemption"
+      "regulatoryOutcome": {
+        "hasPendingRegulation": false,
+        "naReason": "Florida maintains comprehensive state preemption under F.S. 125.0103 and HB 1417, with no active rent control legislation or ballot initiatives. Recent tenant protection bills (HB 365, HB 31) have consistently failed in committee, demonstrating continued legislative resistance to any rent regulation measures.",
+        "pendingItems": []
       }
     },
     "929massachusettsavenuecambridgema02139": {
       "buildingCharacteristics": {
-        "yearBuilt": "1973",
+        "yearBuilt": 1973,
         "estimatedAge": 53,
-        "source": "Apartment Finder, Zillow, Homes.com listing data",
+        "source": "Multiple property records including Zillow, Apartment Finder, and Homes.com consistently indicate construction date of 1973",
         "confidence": "High",
-        "notes": "929 Mass is an 18-story high-rise apartment building with 127 units. Multiple property listing sources confirm 1973 construction date."
+        "notes": "Property records show consistent construction date of 1973 across multiple sources. Building is an 18-story high-rise with 127 units."
       },
       "investmentSummary": [
-        "Property operates under Massachusetts state preemption - no current rent control or regulatory constraints on rent increases",
-        "2026 ballot initiative poses material regulatory risk with statewide rent cap at CPI or 5%, whichever is lower",
-        "Polling shows 56-63% support for ballot measure with no vacancy decontrol - rent caps apply between tenants",
-        "10-year new construction exemption in proposed measure does not apply to this 1973 building",
-        "Investment decision should consider potential for most restrictive statewide rent control regime in US by 2027"
+        "NO rent control currently applies - Massachusetts has statewide prohibition under Chapter 40P",
+        "SIGNIFICANT pending risk: 2026 ballot initiative certified with 88,132+ signatures, polls show 56-63% support",
+        "IF ballot passes: immediate 5% or CPI cap (whichever lower) on ALL units, no vacancy decontrol",
+        "Building pre-1973 would be fully covered - no exemptions apply to this vintage/size",
+        "January 31, 2026 rent freeze date creates urgent underwriting implications"
       ],
-      "regulatoryRiskLevel": "Elevated Uncertainty",
+      "regulatoryRiskLevel": "High",
       "layers": [
         {
           "type": "State",
-          "name": "Massachusetts Chapter 40P",
-          "basis": "1994 statewide ballot initiative (Question 9), 51.3% approval",
+          "name": "Massachusetts Chapter 40P Rent Control Prohibition",
+          "basis": "Statewide ballot initiative (1994)",
           "status": "applies"
-        },
-        {
-          "type": "County",
-          "name": "Middlesex County",
-          "basis": "No county-level housing regulations",
-          "status": "does_not_apply"
         },
         {
           "type": "City",
           "name": "Cambridge",
-          "basis": "No current rent control - eliminated by 1994 statewide ban",
+          "basis": "Local jurisdiction",
+          "status": "does_not_apply"
+        },
+        {
+          "type": "County",
+          "name": "Middlesex County",
+          "basis": "County jurisdiction",
           "status": "does_not_apply"
         }
       ],
       "rentControl": [
         {
-          "jurisdiction": "Massachusetts (State)",
-          "layerType": "State Preemption",
-          "statusLabel": "Rent Control Prohibited",
+          "jurisdiction": "Massachusetts",
+          "layerType": "State",
+          "statusLabel": "Chapter 40P Prohibition - No Rent Control",
           "badge": "Does Not Apply",
-          "ruleDateBasis": "Chapter 40P enacted 1994",
-          "formula": "No rent increase limits - market-rate pricing permitted",
-          "summary": "Massachusetts prohibits all local rent control ordinances statewide. Chapter 40P allows limited exceptions only for declared housing emergencies with specific compensation provisions, but no municipality has enacted such measures.",
-          "applicability": "Applies to all residential rental housing in Massachusetts. Property is not subject to any rent increase caps or regulatory constraints on pricing.",
-          "investmentImplications": "Property operates in completely unregulated rent environment. Landlords may increase rents to market levels with proper 30-day notice for month-to-month tenancies or at lease renewal. No regulatory approval required for rent increases of any magnitude.",
-          "certainty": "Definitive",
-          "ageThreshold": "None - applies regardless of construction date",
+          "ruleDateBasis": "1994 ballot initiative",
+          "formula": "No rent increase limitations",
+          "summary": "Massachusetts prohibits rent control statewide under Chapter 40P, enacted by voter referendum in 1994. Landlords may increase rent without limit, subject only to proper notice requirements (30 days for month-to-month tenancy).",
+          "applicability": "Applies to all residential rental properties statewide including 929 Massachusetts Avenue",
+          "investmentImplications": "Current regulatory environment permits unlimited rent increases with proper notice, providing maximum pricing flexibility. However, this creates significant regulatory transition risk given pending 2026 ballot initiative with strong polling support.",
+          "certainty": "High - established law since 1994",
+          "ageThreshold": "N/A - prohibition applies regardless of building age",
           "sources": [
             {
               "title": "Massachusetts General Laws Chapter 40P",
               "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P",
               "type": "Official",
               "note": "The Massachusetts Rent Control Prohibition Act"
+            },
+            {
+              "title": "Massachusetts Rent Control Laws 2025 Guide",
+              "url": "https://www.leaserunner.com/laws/massachusetts-rent-control-laws",
+              "type": "Secondary",
+              "note": "Current state of rent control prohibition"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "preempts_local",
-        "localRegulationAuthority": "Completely preempted by state law",
-        "localRuleStrength": "None permitted",
+        "localRegulationAuthority": "Prohibited under Chapter 40P except with specific state legislative authorization",
+        "localRuleStrength": "None - state preemption complete",
         "boroughAuthority": "N/A",
         "overlappingRegime": "None",
         "assetLevelDependency": "low",
-        "primaryRule": "Massachusetts Chapter 40P prohibits all local rent control",
-        "overlayRules": "None",
-        "structuralInterpretation": "Complete state preemption with narrow emergency exception never utilized",
+        "primaryRule": "Massachusetts Chapter 40P - statewide rent control prohibition",
+        "overlayRules": "Standard landlord-tenant notice requirements (30-day notice for rent increases)",
+        "structuralInterpretation": "Clear state preemption structure with complete prohibition on local rent control ordinances",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Clear regulatory framework with no asset-specific variables"
+        "applicabilityRiskNote": "High regulatory transition risk due to pending 2026 ballot initiative that would replace Chapter 40P entirely"
       },
       "finalApplicability": {
-        "classification": "Unregulated Market-Rate Property",
-        "primaryGoverningRule": "Massachusetts Chapter 40P (1994) prohibits rent control statewide",
-        "overlayRules": "None",
-        "reasoning": "Property is subject to complete state preemption of local rent control. Built in 1973, significantly pre-dates the 1994 statewide prohibition. No rent increase caps or regulatory constraints apply.",
-        "ageInterpretation": "Building age is irrelevant under current regulatory framework - all properties exempt from rent control regardless of construction date",
-        "confidenceLevel": "High",
+        "classification": "No Rent Control - State Preemption",
+        "primaryGoverningRule": "Massachusetts Chapter 40P Rent Control Prohibition Act",
+        "overlayRules": "30-day notice requirement for rent increases on month-to-month tenancies",
+        "reasoning": "Building at 929 Massachusetts Avenue, Cambridge is subject to Massachusetts statewide rent control prohibition under Chapter 40P, enacted by voter referendum in 1994. No local Cambridge rent control applies to this 1973-built market-rate building.",
+        "ageInterpretation": "Building age (1973) is irrelevant under current law - prohibition applies to all residential rental properties regardless of construction date",
+        "confidenceLevel": "High for current law; High uncertainty for regulatory transition risk",
         "riskFlags": [
-          "2026 statewide ballot initiative with 56-63% polling support",
-          "Proposed CPI + 5% cap would apply to this 1973 building",
-          "No vacancy decontrol in proposed measure",
-          "January 31, 2026 base rent date creates acquisition timing risk"
+          "PENDING BALLOT INITIATIVE: 2026 statewide rent control measure certified with strong polling support (56-63%)",
+          "RENT FREEZE DATE: January 31, 2026 would become base rent calculation date if ballot passes",
+          "NO VACANCY DECONTROL: Proposed law would cap increases even between tenancies",
+          "IMMEDIATE COVERAGE: 1973 building would be fully subject to proposed 5% annual cap"
         ],
-        "underwritingRentGrowthFormula": "Market rate with 30-day notice requirement (current); CPI or 5% max annual if ballot measure passes",
-        "investmentImplications": "Property currently operates without regulatory rent constraints, allowing market-rate pricing with standard notice requirements. However, the 2026 ballot initiative poses material regulatory risk that would cap annual rent increases at the lower of CPI or 5%, with no vacancy decontrol between tenants. Polling data shows majority support (56-63%) for the measure. Investment returns could face significant constraints if ballot measure passes, creating binary regulatory outcome for underwriting purposes."
+        "underwritingRentGrowthFormula": "Current: No limits; Proposed (if ballot passes): min(CPI, 5%) annually with no vacancy decontrol",
+        "investmentImplications": "Under current law, unlimited rent increase potential with proper notice provides maximum pricing flexibility. However, high probability of regulatory transition to 5% annual cap creates severe underwriting constraints. Proposed law would establish January 31, 2026 rent as permanent baseline, making immediate rent optimization critical for asset positioning. No exemptions would apply to this vintage building."
       },
       "legislation": [
         {
-          "jurisdiction": "Massachusetts (State)",
-          "layerType": "Ballot Initiative",
-          "title": "Massachusetts Rent Control Initiative (2026) - Petition No. 25-21",
-          "status": "Pending - Signatures certified, legislative review ongoing",
-          "date": "November 3, 2026 (Election Date)",
-          "summary": "Would repeal Chapter 40P statewide rent control ban and implement mandatory rent stabilization across all 351 cities and towns. Annual increases capped at CPI or 5%, whichever is lower. Rent in place as of January 31, 2026 becomes baseline for future increases. No vacancy decontrol - caps apply between tenants.",
-          "forwardLooking": "Legislature has until May 5, 2026 to act on petition. If no legislative action, additional signatures required by July for November ballot placement. Polling shows 56-63% support.",
-          "whyItMatters": "Would create strictest statewide rent control regime in US. Unlike pre-1994 system where cities opted in, this would mandate rent caps statewide. Property built in 1973 would be subject to caps with no new construction exemption.",
+          "jurisdiction": "Massachusetts",
+          "layerType": "State",
+          "title": "Initiative Petition to Protect Tenants by Limiting Rent Increases (2026 Ballot)",
+          "status": "Certified - 88,132 valid signatures collected, pending legislative review",
+          "date": "December 18, 2025 certified; November 2026 ballot",
+          "summary": "Would replace Chapter 40P with statewide rent stabilization capping annual increases at CPI or 5% (whichever lower) with no vacancy decontrol. January 31, 2026 rent becomes permanent base. Exempts owner-occupied buildings ≤4 units and new construction for first 10 years.",
+          "forwardLooking": "Strong polling support (56-63%) indicates high passage probability. Legislature has until first Wednesday in May 2026 to act before automatic ballot placement.",
+          "whyItMatters": "Would fundamentally transform Massachusetts rental market by establishing strictest statewide rent control in U.S., eliminating vacancy decontrol entirely and creating permanent rent caps for existing buildings like 929 Mass Ave.",
           "sources": [
             {
               "title": "Massachusetts Rent Control Initiative (2026) - Ballotpedia",
               "url": "https://ballotpedia.org/Massachusetts_Rent_Control_Initiative_(2026)",
-              "type": "Secondary",
-              "note": "Official ballot measure tracking"
+              "type": "Legal/Policy",
+              "note": "Official ballot initiative tracking and signature certification"
             },
             {
-              "title": "2026 Massachusetts Elections - Wikipedia",
-              "url": "https://en.wikipedia.org/wiki/2026_Massachusetts_elections",
+              "title": "Suffolk/Globe Poll - 62.6% Support Rent Control",
+              "url": "https://www.bostonglobe.com/2025/11/25/metro/suffolk-globe-poll-ballot-questions-rent-contol/",
               "type": "Secondary",
-              "note": "Polling data: Suffolk 62.6% support (Nov 2025), 56% support (Feb 2026)"
+              "note": "Polling data showing voter support"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "three",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Ballot measure fails - property remains unregulated with market-rate pricing",
-          "regulatoryAssumption": "Massachusetts Chapter 40P remains in effect, no rent control implementation"
-        },
-        "downside": {
-          "annualRentGrowth": 3.5,
-          "basis": "Ballot measure passes - rent increases capped at CPI or 5%, whichever is lower. Assuming CPI averages 3.5% based on recent trends",
-          "trigger": "2026 ballot initiative passes with 56-63% polling support",
-          "fiveYearCumulativeImpact": "-1.5%",
-          "probability": "60% based on polling range"
-        },
-        "upside": {
-          "annualRentGrowth": 5.5,
-          "basis": "Ballot measure fails and market conditions improve with continued deregulated environment",
-          "trigger": "Ballot initiative defeated, property investment increases due to regulatory certainty",
-          "fiveYearCumulativeImpact": "+4.5%",
-          "probability": "40% (inverse of polling support)"
-        },
-        "recommendation": "CONDITIONAL",
-        "keyCondition": "Investment returns dependent on November 2026 ballot outcome - verify acquisition timing relative to January 31, 2026 base rent date and monitor polling trends through election cycle."
+      "regulatoryOutcome": {
+        "hasPendingRegulation": true,
+        "pendingItems": [
+          {
+            "name": "Massachusetts Rent Control Initiative (2026 Ballot)",
+            "ifPasses": {
+              "cap": "Annual increases limited to CPI or 5%, whichever is lower",
+              "baseRent": "Rent in place on January 31, 2026 becomes permanent baseline",
+              "vacancyDecontrol": "No vacancy decontrol - caps apply even between tenancies",
+              "effectiveDate": "Immediately upon passage (likely January 2027)",
+              "exemptions": "None applicable - 1973 building with 127 units fully covered"
+            },
+            "ifFails": {
+              "cap": "No rent increase limitations - unlimited increases with proper notice",
+              "summary": "Chapter 40P prohibition remains in effect, maintaining current unlimited rent increase environment"
+            },
+            "polling": "Suffolk/Boston Globe: 62.6% support; UNH: 56% support (range 56-63%)",
+            "status": "88,132 valid signatures certified December 18, 2025; Legislature has until May 2026 to act before automatic ballot placement"
+          }
+        ]
       }
     },
     "265poncedeleonaveneatlantaga30308": {
       "buildingCharacteristics": {
         "yearBuilt": 2002,
         "estimatedAge": 24,
-        "source": "Multiple property listing sources including Trulia and Redfin confirming building constructed in 2002",
+        "source": "Trulia property listing and public records",
         "confidence": "High",
-        "notes": "Camden Midtown Atlanta - luxury apartment complex with 29 units built in 2002"
+        "notes": "Multiple sources confirm Camden Midtown Atlanta at 265 Ponce De Leon Ave NE was built in 2002"
       },
       "investmentSummary": [
-        "No rent control regulations at any level due to Georgia state preemption (O.C.G.A. § 44-7-19)",
-        "Limited temporary rent protection for seniors 62+ receiving Social Security/disability benefits (10% cap through Dec 31, 2026)",
-        "New habitability requirements under Safe at Home Act may increase maintenance obligations but unlikely to affect rent growth",
-        "Failed legislative efforts to repeal rent control ban indicate minimal near-term regulatory risk"
+        "No rent control regulations apply - Georgia's O.C.G.A. § 44-7-19 prohibits all local rent control ordinances",
+        "Landlords have unlimited rent increase flexibility with 60-day notice requirement per Georgia law",
+        "HB 938 (2024) provides temporary 10% rent cap protection only for tenants 62+ on fixed income through December 2026",
+        "New habitability requirements under HB 404 Safe at Home Act effective July 2024 require maintenance compliance",
+        "No pending rent control legislation poses credible threat to preemption in current Republican-controlled legislature"
       ],
       "regulatoryRiskLevel": "Low",
       "layers": [
         {
           "type": "State",
-          "name": "Georgia State Law",
-          "basis": "O.C.G.A. § 44-7-19 - Statewide rent control preemption",
+          "name": "Georgia Rent Control Prohibition",
+          "basis": "O.C.G.A. § 44-7-19",
           "status": "applies"
         },
         {
           "type": "County",
           "name": "Fulton County",
-          "basis": "No local rent control authority due to state preemption",
+          "basis": "State preemption - no local authority",
           "status": "does_not_apply"
         },
         {
           "type": "City",
           "name": "Atlanta",
-          "basis": "Prohibited from enacting rent control ordinances by state law",
+          "basis": "State preemption - no local authority",
           "status": "does_not_apply"
         }
       ],
       "rentControl": [
         {
-          "jurisdiction": "Georgia State",
-          "layerType": "Preemption",
-          "statusLabel": "Complete Prohibition",
+          "jurisdiction": "Georgia (State)",
+          "layerType": "Rent Control Prohibition",
+          "statusLabel": "Complete State Preemption",
           "badge": "Does Not Apply",
-          "ruleDateBasis": "1984 (codified as O.C.G.A. § 44-7-19)",
-          "formula": "No rent increase limitations - market rate pricing permitted",
-          "summary": "Georgia law completely prohibits any county or municipal rent control ordinances statewide. Landlords may increase rent by any amount with proper notice (60 days for lease renewals).",
-          "applicability": "Applies to all residential rental properties in Georgia regardless of age, size, or rent level. Only exception is limited senior protection through December 31, 2026.",
-          "investmentImplications": "Provides maximum rent growth flexibility for investment properties. No age-based exemptions or luxury decontrol thresholds. Rent increases limited only by market conditions and lease terms.",
-          "certainty": "High - established state law with consistent enforcement",
-          "ageThreshold": "N/A - preemption applies to all properties regardless of construction date",
+          "ruleDateBasis": "1984 enactment",
+          "formula": "No rent caps permitted",
+          "summary": "O.C.G.A. § 44-7-19 prohibits all counties and municipalities from enacting any ordinance regulating rent amounts for privately owned residential rental property",
+          "applicability": "Universal prohibition applies to all private residential rentals statewide",
+          "investmentImplications": "Provides maximum landlord flexibility with unlimited rent increase potential subject only to lease terms and notice requirements. Creates stable regulatory environment with no local political risk of future rent caps.",
+          "certainty": "Absolute - statutory prohibition with no exemptions",
+          "ageThreshold": "N/A - prohibition applies regardless of building age",
           "sources": [
             {
-              "title": "Georgia Code § 44-7-19 - Restrictions on rent regulation by local governments",
-              "url": "https://www.turbotenant.com/rental-lease-agreement/georgia/laws/rent-control/",
+              "title": "Georgia Code § 44-7-19 (2024) - Restrictions on rent regulation",
+              "url": "https://law.justia.com/codes/georgia/title-44/chapter-7/article-1/section-44-7-19/",
               "type": "Official",
-              "note": "Primary statute establishing statewide rent control prohibition"
-            },
+              "note": "Primary statutory authority"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Georgia (State)",
+          "layerType": "Limited Senior Protection",
+          "statusLabel": "Temporary 10% Cap for Eligible Seniors",
+          "badge": "Potentially Applies",
+          "ruleDateBasis": "HB 938 enacted 2024",
+          "formula": "10% maximum increase from June 30, 2024 baseline",
+          "summary": "Temporary rent increase limitation for tenants over 62 whose primary income is Social Security or disability benefits, expires December 31, 2026",
+          "applicability": "Only applies to tenants 62+ with qualifying income sources in this specific property",
+          "investmentImplications": "Minimal impact - affects only qualifying senior tenants and expires in 2026. Does not create permanent rent control framework or precedent for broader regulations.",
+          "certainty": "Clear but limited application",
+          "ageThreshold": "Tenant age 62+, not building age",
+          "sources": [
             {
-              "title": "Georgia Rent Control Laws in 2025",
-              "url": "https://www.hemlane.com/resources/georgia-rent-control-laws/",
+              "title": "2024 Legislative Updates - Georgia Apartment Association",
+              "url": "https://www.ga-apt.org/blog/2024-legislative-updates-3",
               "type": "Legal/Policy",
-              "note": "Comprehensive analysis of Georgia's rent control ban and tenant protections"
+              "note": "HB 938 details and industry analysis"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "preempts_local",
-        "localRegulationAuthority": "Prohibited by state law",
-        "localRuleStrength": "None - state preemption is absolute",
+        "localRegulationAuthority": "Prohibited by state statute",
+        "localRuleStrength": "None - complete preemption",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "None",
+        "overlappingRegime": "Single-layer state prohibition with limited senior protection overlay",
         "assetLevelDependency": "low",
-        "primaryRule": "O.C.G.A. § 44-7-19 prohibits all municipal and county rent regulation ordinances",
-        "overlayRules": "Safe at Home Act (HB 404) establishes habitability standards; HB 938 provides limited senior rent protection through 2026",
-        "structuralInterpretation": "Clear hierarchical structure with state law completely preempting local authority",
+        "primaryRule": "O.C.G.A. § 44-7-19 rent control prohibition",
+        "overlayRules": "HB 938 senior protection (temporary)",
+        "structuralInterpretation": "Clear hierarchical structure with state law supremacy over local ordinances",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Minimal regulatory risk due to established state preemption and failed legislative repeal efforts"
+        "applicabilityRiskNote": "Extremely low regulatory risk due to comprehensive state preemption and politically unfavorable environment for rent control"
       },
       "finalApplicability": {
-        "classification": "Unregulated",
-        "primaryGoverningRule": "Georgia state preemption - no rent control at any level",
-        "overlayRules": "Safe at Home Act habitability requirements; temporary senior rent protection (expires 2026)",
-        "reasoning": "Building constructed in 2002 falls under Georgia's comprehensive rent control prohibition. State law O.C.G.A. § 44-7-19 prevents Atlanta, Fulton County, and all other local jurisdictions from enacting rent regulation ordinances.",
-        "ageInterpretation": "Building age irrelevant - state preemption applies to all residential rental properties regardless of construction date",
-        "confidenceLevel": "High",
+        "classification": "No Rent Control - State Preempted",
+        "primaryGoverningRule": "Georgia O.C.G.A. § 44-7-19 prohibits all local rent control",
+        "overlayRules": "HB 938 temporary senior protection through 2026; HB 404 habitability requirements",
+        "reasoning": "Georgia statute enacted in 1984 completely prohibits counties and municipalities from regulating private residential rent amounts. Property built in 2002 has no rent control protections regardless of age.",
+        "ageInterpretation": "Building age irrelevant - state preemption applies universally to all private rentals",
+        "confidenceLevel": "Very High",
         "riskFlags": [
-          "Limited temporary senior protection expires December 31, 2026",
-          "New habitability requirements under Safe at Home Act may increase maintenance costs"
+          "Monitor HB 938 renewal beyond 2026 for senior protections",
+          "Track habitability compliance under HB 404 Safe at Home Act"
         ],
-        "underwritingRentGrowthFormula": "Market rate pricing - no statutory caps or limitations",
-        "investmentImplications": "Excellent rent growth potential with minimal regulatory constraints. Georgia's established state preemption provides stability and predictability for investment underwriting. Recent legislative efforts to repeal the rent control ban have failed, indicating continued market-friendly environment. New habitability standards may require increased maintenance investment but do not restrict rent increases."
+        "underwritingRentGrowthFormula": "Market rate with 60-day notice requirement (no percentage cap except 10% for qualifying seniors through 2026)",
+        "investmentImplications": "Excellent landlord-favorable regulatory environment with unlimited rent growth potential. State preemption provides strong protection against future local rent control initiatives. Minimal compliance burden beyond standard landlord-tenant obligations and new habitability standards. Political environment strongly favors property rights with failed rent control repeal attempts in 2023-2024 legislative sessions."
       },
       "legislation": [
         {
-          "jurisdiction": "Georgia State",
-          "layerType": "Preemption Repeal Attempt",
-          "title": "Senate Bill 125 - Rent Control Ban Repeal",
-          "status": "Failed (2023)",
-          "date": "March 2023",
-          "summary": "Bill introduced by State Sen. Donzella James to lift Georgia's rent control prohibition failed without committee hearing. Received support from Atlanta Mayor Andre Dickens but no legislative co-sponsors.",
-          "forwardLooking": "Similar legislative efforts expected to face continued opposition in Republican-controlled, landlord-friendly legislature",
-          "whyItMatters": "Demonstrates low probability of near-term changes to Georgia's rent control prohibition despite housing affordability concerns",
+          "jurisdiction": "Georgia",
+          "layerType": "State Preemption",
+          "title": "O.C.G.A. § 44-7-19 - Rent Control Prohibition",
+          "status": "Active since 1984",
+          "date": "1984 (updated 2024)",
+          "summary": "Prohibits all counties and municipalities from enacting ordinances regulating rent amounts for privately owned residential properties",
+          "forwardLooking": "Stable - no credible repeal efforts in Republican-controlled legislature",
+          "whyItMatters": "Provides comprehensive protection against local rent control initiatives, ensuring unlimited rent increase flexibility subject only to notice requirements",
           "sources": [
             {
-              "title": "Legislation to repeal Georgia's rent control ban stalls out",
-              "url": "https://atlantaciviccircle.org/2023/03/02/bill-to-repeal-rent-control-ban-failing/",
+              "title": "Georgia Code § 44-7-19 Current Version",
+              "url": "https://law.justia.com/codes/georgia/title-44/chapter-7/article-1/section-44-7-19/",
+              "type": "Official",
+              "note": "Current statutory text"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Georgia",
+          "layerType": "Tenant Protection",
+          "title": "HB 404 - Safe at Home Act",
+          "status": "Enacted April 2024, effective July 1, 2024",
+          "date": "Signed April 22, 2024",
+          "summary": "Establishes habitability warranty, 3-day eviction grace period, and caps security deposits at 2 months rent",
+          "forwardLooking": "Compliance required - affects property maintenance obligations but not rent control",
+          "whyItMatters": "Creates new landlord maintenance obligations and procedural requirements but does not restrict rent increases",
+          "sources": [
+            {
+              "title": "Georgia Passes New Tenant Protection Law - NLIHC",
+              "url": "https://nlihc.org/resource/georgia-passes-new-tenant-protection-law-renters-establishing-minimum-habitability",
               "type": "Legal/Policy",
-              "note": "Analysis of failed 2023 rent control repeal effort"
+              "note": "Comprehensive analysis of HB 404 provisions"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "single",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4,
-          "basis": "Market rate growth reflecting Atlanta's strong rental fundamentals and lack of regulatory constraints",
-          "regulatoryAssumption": "Continued state preemption of rent control with no material tenant protection legislation"
-        },
-        "recommendation": "GO",
-        "keyCondition": "Georgia's established state preemption of rent control provides regulatory certainty and maximum rent growth flexibility for the full investment hold period."
+      "regulatoryOutcome": {
+        "hasPendingRegulation": false,
+        "naReason": "State preemption under O.C.G.A. § 44-7-19 with no active repeal legislation or pending regulatory changes. Failed rent control repeal attempts (HB 852) in 2024 legislative session demonstrate political unfeasibility in current Republican-controlled environment.",
+        "pendingItems": []
       }
     },
     "21164thaveseattlewa98121": {
       "buildingCharacteristics": {
-        "yearBuilt": 2019,
-        "estimatedAge": 7,
-        "source": "Zillow property record",
+        "yearBuilt": 2018,
+        "estimatedAge": 8,
+        "source": "Multiple property listing sources including Zillow, Trulia showing construction dates of 2018-2019 for different units within the same building",
         "confidence": "High",
-        "notes": "Built in 2019, this property qualifies for HB 1217's 12-year new construction exemption until 2031"
+        "notes": "The 'Arrive' building at 2116 4th Ave was formerly known as 'Potala Tower'. Multiple sources confirm construction completed between 2018-2019, with most individual unit listings showing 2018 year built."
       },
       "investmentSummary": [
-        "Property built in 2019 benefits from HB 1217's 12-year new construction exemption until 2031",
-        "Washington state implemented rent stabilization (HB 1217) effective May 7, 2025 with 7% + CPI cap or 10% maximum",
-        "Seattle's additional 180-day notice requirement for 10%+ increases must be followed",
-        "Post-2031, property becomes subject to state rent cap formula; significant underwriting impact"
+        "Property is exempt from Washington HB 1217 rent control due to 12-year new construction exemption (completed 2018-2019)",
+        "Subject to Seattle's 180-day advance notice requirement for rent increases and EDRA relocation assistance if increases exceed 10%",
+        "New state law will begin applying in 2030-2031 with 7%+CPI cap (max 10%) and 90-day notice requirements",
+        "Located in prime Belltown location with luxury amenity profile supporting premium rents",
+        "Current regulatory environment favorable for rent optimization until state exemption expires"
       ],
       "regulatoryRiskLevel": "Moderate",
       "layers": [
         {
           "type": "State",
-          "name": "Washington State HB 1217 Rent Stabilization",
-          "basis": "Construction date/new construction exemption",
-          "status": "potentially_applies"
+          "name": "Washington HB 1217 Rent Stabilization",
+          "basis": "Statewide rent control law effective May 7, 2025",
+          "status": "does_not_apply"
+        },
+        {
+          "type": "County",
+          "name": "King County",
+          "basis": "Extended notice requirements for rent increases",
+          "status": "applies"
         },
         {
           "type": "City",
-          "name": "Seattle Notice Requirements",
-          "basis": "Geographic location",
+          "name": "Seattle Rent Increase Ordinance",
+          "basis": "180-day notice requirement and EDRA protections",
           "status": "applies"
         }
       ],
@@ -1117,130 +1243,165 @@
         {
           "jurisdiction": "Washington State",
           "layerType": "State",
-          "statusLabel": "Exempt Until 2031 - New Construction",
-          "badge": "Potentially Applies",
-          "ruleDateBasis": "Certificate of occupancy date",
-          "formula": "7% + Consumer Price Index or 10%, whichever is less (applies after 12-year exemption expires)",
-          "summary": "HB 1217 rent stabilization law effective May 7, 2025, with 12-year new construction exemption",
-          "applicability": "Property built in 2019 is exempt until 2031 under 12-year new construction provision",
-          "investmentImplications": "Significant regulatory transition expected in 2031 when rent increases become subject to state formula cap. During exemption period, only market forces and Seattle notice requirements constrain rent growth.",
-          "certainty": "High",
+          "statusLabel": "Exempt (New Construction)",
+          "badge": "Does Not Apply",
+          "ruleDateBasis": "Certificate of occupancy from 2018-2019",
+          "formula": "7% + CPI, capped at 10% annually (when applicable after exemption expires)",
+          "summary": "Washington HB 1217 provides 12-year exemption for new construction from first certificate of occupancy. This building qualifies for exemption until approximately 2030-2031.",
+          "applicability": "Building is exempt from state rent control until 12 years after certificate of occupancy (2030-2031). After exemption expires, rent increases will be capped at 7% plus Consumer Price Index or 10%, whichever is less.",
+          "investmentImplications": "Significant regulatory advantage during exemption period allows market-rate rent optimization. However, investors must plan for meaningful constraint on rent growth beginning in 2030-2031. 90-day advance notice will be required for all increases once exemption expires.",
+          "certainty": "High - exemption clearly established in statute",
           "ageThreshold": "12 years from certificate of occupancy",
           "sources": [
             {
-              "title": "Washington State Legislature HB 1217",
-              "url": "https://app.leg.wa.gov/billsummary?billnumber=1217&year=2025",
-              "type": "Official",
-              "note": "Effective date 5/7/2025"
+              "title": "Washington Enacts Statewide Rent Control - Stoel Rives",
+              "url": "https://www.stoel.com/insights/publications/washington-enacts-statewide-rent-control-key-rules-now-in-effect",
+              "type": "Legal/Policy",
+              "note": "Legal analysis of HB 1217 exemptions"
             },
             {
-              "title": "Washington Attorney General Rent Stabilization",
-              "url": "https://www.atg.wa.gov/landlord-tenant",
+              "title": "HB 1217 Landlord Resource Center - WA Department of Commerce",
+              "url": "https://www.commerce.wa.gov/housing-policy/hb1217-landlord-resource-center/",
               "type": "Official",
-              "note": "Enforcement authority and tenant rights"
+              "note": "Official state guidance on rent control implementation"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "King County",
+          "layerType": "County",
+          "statusLabel": "Extended Notice Requirements",
+          "badge": "Applies",
+          "ruleDateBasis": "County ordinances for unincorporated areas",
+          "formula": "No rent cap; extended notice periods for increases >3%",
+          "summary": "King County requires 120-day notice for rent increases exceeding 3% in unincorporated areas. Seattle is incorporated and follows city ordinances instead.",
+          "applicability": "Property is located within Seattle city limits, so King County unincorporated area rules do not apply. Seattle city ordinances govern instead.",
+          "investmentImplications": "King County rules do not directly apply to this Seattle property, but demonstrate regional trend toward tenant protections and extended notice requirements.",
+          "certainty": "High - property is within Seattle city limits",
+          "ageThreshold": "N/A",
+          "sources": [
+            {
+              "title": "Rent Increase Ordinances by City - WA Landlord Association",
+              "url": "https://walandlord.org/rent-increase-ordinances-by-city/",
+              "type": "Legal/Policy",
+              "note": "Summary of local rent increase notice requirements"
             }
           ]
         },
         {
           "jurisdiction": "Seattle",
-          "layerType": "Local Notice",
-          "statusLabel": "Notice Requirements Apply",
+          "layerType": "City",
+          "statusLabel": "180-Day Notice + EDRA",
           "badge": "Applies",
-          "ruleDateBasis": "Geographic location",
-          "formula": "180-day notice for increases ≥10%, 60-day notice for increases <10%",
-          "summary": "Seattle requires extended notice periods for housing cost increases beyond state requirements",
-          "applicability": "Applies to all rental properties in Seattle regardless of exemptions from rent caps",
-          "investmentImplications": "Landlords must provide 180-day advance notice for any rent increase of 10% or more, plus EDRA notice and potential relocation assistance payments up to 3 months rent for qualifying tenants.",
-          "certainty": "High",
-          "ageThreshold": "No age restrictions",
+          "ruleDateBasis": "Seattle Municipal Code rent increase ordinances",
+          "formula": "No rent cap; 180-day advance notice required; EDRA triggered at 10%+ increases",
+          "summary": "Seattle requires 180-day advance written notice for all rent increases. Increases of 10% or more within 12 months trigger Economic Displacement Relocation Assistance (EDRA) requirements.",
+          "applicability": "All rental properties in Seattle must provide 180-day advance notice for rent increases. Properties must attach EDRA notice for increases ≥10% and may owe relocation assistance to qualifying tenants.",
+          "investmentImplications": "Long notice periods require advance planning for rent optimization strategies. EDRA requirements create potential relocation costs for large increases, encouraging smaller, more frequent adjustments. Notice must include specific Seattle-required language and cannot be enforced if property fails to meet RRIO standards.",
+          "certainty": "High - well-established Seattle ordinances",
+          "ageThreshold": "N/A",
           "sources": [
             {
-              "title": "Seattle Housing Cost Increases",
+              "title": "Housing Cost Increases - Seattle.gov",
               "url": "https://www.seattle.gov/rentinginseattle/housing-providers/managing-the-rental-relationship/housing-cost-increases",
               "type": "Official",
-              "note": "Notice requirements and EDRA provisions"
+              "note": "Official Seattle guidance on rent increase requirements"
+            },
+            {
+              "title": "Renting in Seattle - Seattle.gov",
+              "url": "https://www.seattle.gov/rentinginseattle",
+              "type": "Official",
+              "note": "Seattle's official rental housing resource portal"
             }
           ]
         }
       ],
       "governingStructure": {
         "statePreemptionStatus": "allows_local",
-        "localRegulationAuthority": "Seattle can impose additional notice and tenant protection requirements but cannot impose rent caps beyond state law",
-        "localRuleStrength": "Strong - Seattle's 180-day notice requirement supersedes state 90-day requirement",
+        "localRegulationAuthority": "Washington allows local tenant protections while state law provides baseline rent stabilization framework",
+        "localRuleStrength": "Strong - Seattle has comprehensive tenant protections including extended notice requirements and relocation assistance",
         "boroughAuthority": "N/A",
-        "overlappingRegime": "State rent cap framework with local notice enhancement",
+        "overlappingRegime": "State rent control with local notice and tenant protection overlays",
         "assetLevelDependency": "high",
-        "primaryRule": "Washington State HB 1217 (12-year new construction exemption)",
-        "overlayRules": "Seattle extended notice requirements and EDRA provisions",
-        "structuralInterpretation": "State law provides rent cap framework; local jurisdictions can add tenant protections but cannot exceed state rent increase limits",
+        "primaryRule": "Washington HB 1217 (12-year new construction exemption applies)",
+        "overlayRules": "Seattle 180-day notice requirement and EDRA relocation assistance",
+        "structuralInterpretation": "State provides rent cap framework with local jurisdictions maintaining authority over notice periods and tenant protections",
         "boroughInterpretation": "N/A",
-        "applicabilityRiskNote": "Exemption expires in 2031 based on 12-year rule from 2019 certificate of occupancy"
+        "applicabilityRiskNote": "Complex interaction between state exemption period and local notice requirements creates regulatory transition risk in 2030-2031"
       },
       "finalApplicability": {
-        "classification": "Temporarily Exempt - New Construction",
-        "primaryGoverningRule": "Washington State HB 1217 with 12-year new construction exemption",
-        "overlayRules": "Seattle 180-day notice requirement for increases ≥10%",
-        "reasoning": "Built in 2019, property qualifies for HB 1217's 12-year new construction exemption through 2031. After exemption expires, subject to state rent cap of 7% + CPI or 10% maximum.",
-        "ageInterpretation": "12-year exemption period calculated from certificate of occupancy date (2019), expiring in 2031",
+        "classification": "Temporarily Exempt from Rent Control",
+        "primaryGoverningRule": "Washington HB 1217 - 12-year new construction exemption",
+        "overlayRules": "Seattle 180-day advance notice requirement and EDRA relocation assistance",
+        "reasoning": "Building completed in 2018-2019 qualifies for 12-year exemption from state rent control until approximately 2030-2031. During exemption period, no state-imposed rent caps apply, but Seattle local ordinances still require 180-day advance notice and EDRA compliance for increases ≥10%.",
+        "ageInterpretation": "8 years old as of 2026, with 4-5 years remaining in new construction exemption period",
         "confidenceLevel": "High",
         "riskFlags": [
-          "Exemption expires 2031 - significant regulatory transition",
-          "Seattle EDRA provisions may require relocation assistance payments",
-          "State rent cap formula creates long-term return constraints post-2031"
+          "State rent control will begin applying in 2030-2031 when exemption expires",
+          "Seattle algorithmic pricing ordinance became effective July 31, 2025",
+          "EDRA relocation assistance requirements for increases ≥10%"
         ],
-        "underwritingRentGrowthFormula": "Market-driven through 2031; 7% + CPI or 10% (whichever less) post-2031",
-        "investmentImplications": "Property benefits from regulatory exemption during most of typical 5-year hold period. However, 2031 transition to state rent cap represents material regulatory cliff. Seattle's notice requirements and EDRA provisions add operational complexity and potential costs for aggressive rent increases. Underwriting should model both exempt and regulated scenarios for exit planning."
+        "underwritingRentGrowthFormula": "Market rate (no cap) until 2030-2031, then min(7% + CPI, 10%) annually",
+        "investmentImplications": "Property currently enjoys optimal regulatory environment for rent optimization with no state-imposed caps during new construction exemption period. However, underwriting must account for meaningful constraint beginning in 2030-2031 when state rent control applies. Seattle's 180-day notice requirement enables strategic rent planning but requires advance coordination. EDRA requirements suggest smaller, more frequent increases may be preferable to large annual adjustments to avoid relocation assistance obligations."
       },
       "legislation": [
         {
           "jurisdiction": "Washington State",
           "layerType": "State",
-          "title": "HB 1217 - Rent Stabilization Act",
-          "status": "Enacted - Effective May 7, 2025",
+          "title": "House Bill 1217 - Rent Stabilization",
+          "status": "Enacted May 7, 2025",
           "date": "May 7, 2025",
-          "summary": "Statewide rent stabilization limiting increases to 7% + CPI or 10% maximum, with 12-year new construction exemption",
-          "forwardLooking": "15-year sunset clause (expires July 1, 2040) except for manufactured home provisions which are permanent",
-          "whyItMatters": "First statewide rent control in Washington, fundamentally changing rental investment dynamics after exemption periods expire",
+          "summary": "Statewide rent control limiting annual increases to 7% plus CPI (max 10%). Includes 12-year new construction exemption, 90-day notice requirements, and 15-year sunset clause. Manufactured homes capped at 5%.",
+          "forwardLooking": "Law is in effect with exemption period for this property expiring in 2030-2031",
+          "whyItMatters": "First statewide rent control in Washington, fundamentally changing investment landscape. New construction exemption provides temporary regulatory advantage but creates future constraint for newer properties.",
           "sources": [
             {
-              "title": "Washington State Legislature HB 1217",
-              "url": "https://app.leg.wa.gov/billsummary?billnumber=1217&year=2025",
-              "type": "Official",
-              "note": "Full bill text and legislative history"
-            },
+              "title": "Washington Governor Signs Rent Control Into Law - Multifamily Dive",
+              "url": "https://www.multifamilydive.com/news/rent-control-Washington-legislation/747994/",
+              "type": "Secondary",
+              "note": "Industry analysis of HB 1217 passage and implications"
+            }
+          ]
+        },
+        {
+          "jurisdiction": "Seattle",
+          "layerType": "City",
+          "title": "Council Bill 121000 - Algorithmic Pricing Ordinance",
+          "status": "Enacted July 1, 2025, Effective July 31, 2025",
+          "date": "July 31, 2025",
+          "summary": "Prohibits use of algorithmic pricing software that coordinates rent recommendations using data from multiple properties. Violations subject to $7,500 penalties plus private right of action.",
+          "forwardLooking": "Currently in effect with enforcement actions already taken",
+          "whyItMatters": "Restricts use of revenue management software platforms, potentially impacting rent optimization strategies for larger operators.",
+          "sources": [
             {
-              "title": "Washington Department of Commerce HB 1217 Resource Center",
-              "url": "https://www.commerce.wa.gov/housing-policy/hb1217-landlord-resource-center/",
-              "type": "Official",
-              "note": "Annual CPI calculations and compliance resources"
+              "title": "Seattle Passes Rent Pricing Ordinance - WMFHA",
+              "url": "https://www.wmfha.org/news/seattle-passes-rent-pricing-ordinance--what-it-means-for-operators",
+              "type": "Legal/Policy",
+              "note": "Industry association analysis of algorithmic pricing restrictions"
             }
           ]
         }
       ],
-      "underwritingScenarios": {
-        "scenarioType": "three",
-        "holdPeriodYears": 5,
-        "baseCase": {
-          "annualRentGrowth": 4.5,
-          "basis": "Market-driven growth during exemption period through hold period",
-          "regulatoryAssumption": "New construction exemption remains in effect through 5-year hold; property sells before 2031 regulatory transition"
-        },
-        "downside": {
-          "annualRentGrowth": 3,
-          "basis": "Conservative market growth with Seattle EDRA compliance costs reducing net effective rent growth",
-          "trigger": "Economic downturn limiting market rent growth plus EDRA relocation assistance payments",
-          "fiveYearCumulativeImpact": "-4.3%",
-          "probability": "25%"
-        },
-        "upside": {
-          "annualRentGrowth": 6,
-          "basis": "Strong Seattle market fundamentals with full exemption benefit and strategic rent optimization",
-          "trigger": "Tech sector growth driving Seattle rental demand above regional averages",
-          "fiveYearCumulativeImpact": "+4.5%",
-          "probability": "20%"
-        },
-        "recommendation": "CONDITIONAL",
-        "keyCondition": "Property must be sold or refinanced before 2031 exemption expiration to avoid state rent cap constraints on future cash flows and exit valuation."
+      "regulatoryOutcome": {
+        "hasPendingRegulation": true,
+        "pendingItems": [
+          {
+            "name": "HB 1217 New Construction Exemption Expiration",
+            "ifPasses": {
+              "cap": "7% + CPI annually, maximum 10%",
+              "baseRent": "No base rent reset - caps apply to existing rents",
+              "vacancyDecontrol": "Permitted - no restrictions on rent setting between tenants",
+              "effectiveDate": "2030-2031 (12 years from certificate of occupancy)",
+              "exemptions": "No further exemptions after initial 12-year period expires"
+            },
+            "ifFails": {
+              "cap": "No rent control - market rates continue",
+              "summary": "Exemption period expires as scheduled with full state rent control applying"
+            },
+            "polling": "N/A - automatic expiration under existing law",
+            "status": "Certain - expires automatically after 12-year exemption period"
+          }
+        ]
       }
     }
   }
