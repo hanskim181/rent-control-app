@@ -287,6 +287,74 @@ async function doExportReport(prop, data) {
     y += 4;
   });
 
+  // === 7. UNDERWRITING SCENARIOS ===
+  if (data.underwritingScenarios) {
+    const uw = data.underwritingScenarios;
+    sectionTitle("7", "5-Year Underwriting Scenarios");
+    // Recommendation badge
+    checkPage(10);
+    const recColors = { GO: [22, 101, 52], CONDITIONAL: [146, 64, 14], "NO-GO": [153, 27, 27] };
+    const recBg = { GO: [240, 253, 244], CONDITIONAL: [255, 251, 235], "NO-GO": [254, 242, 242] };
+    doc.setFontSize(9); doc.setFont("helvetica", "bold");
+    doc.setTextColor(...(recColors[uw.recommendation] || [71, 85, 105]));
+    doc.text("Recommendation: " + uw.recommendation, M, y);
+    doc.setFont("helvetica", "normal"); doc.setTextColor(100, 116, 139);
+    doc.text("Hold Period: " + uw.holdPeriodYears + " Years", W - M - doc.getTextWidth("Hold Period: " + uw.holdPeriodYears + " Years"), y);
+    y += 8;
+
+    if (uw.scenarioType === "three") {
+      const colW = (CW - 8) / 3;
+      const scenarios = [
+        { label: "BASE CASE", d: uw.baseCase },
+        { label: "DOWNSIDE", d: uw.downside },
+        { label: "UPSIDE", d: uw.upside },
+      ];
+      checkPage(40);
+      scenarios.forEach((sc, idx) => {
+        if (!sc.d) return;
+        const x = M + idx * (colW + 4);
+        doc.setFillColor(248, 250, 252); doc.roundedRect(x, y, colW, 36, 2, 2, "F");
+        doc.setFontSize(7.5); doc.setFont("helvetica", "bold"); doc.setTextColor(100, 116, 139);
+        doc.text(sc.label, x + 4, y + 5);
+        doc.setFontSize(16); doc.setFont("helvetica", "bold");
+        doc.setTextColor(idx === 0 ? 51 : idx === 1 ? 153 : 22, idx === 0 ? 65 : idx === 1 ? 27 : 101, idx === 0 ? 85 : idx === 1 ? 27 : 52);
+        doc.text(sc.d.annualRentGrowth + "%", x + 4, y + 16);
+        doc.setFontSize(7.5); doc.setFont("helvetica", "normal"); doc.setTextColor(71, 85, 105);
+        const basisLines = doc.splitTextToSize(sc.d.basis || "", colW - 8);
+        doc.text(basisLines, x + 4, y + 22);
+        if (sc.d.fiveYearCumulativeImpact) {
+          doc.setFontSize(9); doc.setFont("helvetica", "bold");
+          doc.setTextColor(sc.d.fiveYearCumulativeImpact.startsWith("-") ? 153 : 22, sc.d.fiveYearCumulativeImpact.startsWith("-") ? 27 : 101, sc.d.fiveYearCumulativeImpact.startsWith("-") ? 27 : 52);
+          doc.text(sc.d.fiveYearCumulativeImpact + " vs base", x + 4, y + 33);
+        }
+      });
+      y += 42;
+    } else {
+      checkPage(20);
+      doc.setFontSize(16); doc.setFont("helvetica", "bold"); doc.setTextColor(22, 101, 52);
+      doc.text((uw.baseCase?.annualRentGrowth || 0) + "% annual growth", M, y);
+      y += 6;
+      doc.setFontSize(9); doc.setFont("helvetica", "normal"); doc.setTextColor(71, 85, 105);
+      const bcBasis = doc.splitTextToSize(uw.baseCase?.basis || "", CW);
+      doc.text(bcBasis, M, y); y += bcBasis.length * 4 + 2;
+      doc.setFontSize(8); doc.setTextColor(148, 163, 184);
+      doc.text("No material pending regulatory risk identified for the 5-year hold period", M, y);
+      y += 8;
+    }
+
+    // Key Condition box
+    if (uw.keyCondition) {
+      checkPage(16);
+      const kcColor = uw.recommendation === "NO-GO" ? [153, 27, 27] : uw.recommendation === "CONDITIONAL" ? [245, 158, 11] : [16, 185, 129];
+      doc.setFillColor(255, 251, 235); doc.setDrawColor(...kcColor);
+      doc.setLineWidth(0.8); doc.roundedRect(M, y, CW, 12, 2, 2, "FD"); doc.setLineWidth(0.4);
+      doc.setFontSize(8); doc.setFont("helvetica", "bold"); doc.setTextColor(51, 65, 85);
+      const kcLines = doc.splitTextToSize(uw.keyCondition, CW - 14);
+      doc.text(kcLines, M + 6, y + 5);
+      y += Math.max(12, kcLines.length * 4 + 6) + 4;
+    }
+  }
+
   // === DISCLAIMER FOOTER ===
   checkPage(30);
   y += 6; drawLine(y, [148, 163, 184]); y += 6;
@@ -433,7 +501,54 @@ function Results({ data, prop }) {
         </Card>
       ))}
 
-      <Sec icon="⑧">Sources & Methodology</Sec>
+      {data.underwritingScenarios && (() => {
+        const uw = data.underwritingScenarios;
+        const recColor = { GO: { bg: "#f0fdf4", text: "#166534", border: "#bbf7d0" }, CONDITIONAL: { bg: "#fffbeb", text: "#92400e", border: "#fde68a" }, "NO-GO": { bg: "#fef2f2", text: "#991b1b", border: "#fecaca" } };
+        const rc = recColor[uw.recommendation] || recColor.CONDITIONAL;
+        return (<>
+          <Sec icon="⑧">5-Year Underwriting Scenarios</Sec>
+          <Card>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+              <div style={{ fontSize: 12, color: "#64748b" }}>Hold Period: {uw.holdPeriodYears} Years</div>
+              <span style={{ background: rc.bg, color: rc.text, border: "1px solid " + rc.border, padding: "3px 12px", borderRadius: 4, fontSize: 12, fontWeight: 700, letterSpacing: "0.05em" }}>{uw.recommendation}</span>
+            </div>
+            {uw.scenarioType === "three" ? (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+                {[
+                  { label: "Base Case", d: uw.baseCase, color: "#334155" },
+                  { label: "Downside", d: uw.downside, color: "#991b1b" },
+                  { label: "Upside", d: uw.upside, color: "#166534" },
+                ].map(({ label, d, color }) => d && (
+                  <div key={label} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 6, padding: 12 }}>
+                    <div style={{ fontSize: 10.5, fontWeight: 600, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 8 }}>{label}</div>
+                    <div style={{ fontSize: 26, fontWeight: 700, color, marginBottom: 4 }}>{d.annualRentGrowth}%</div>
+                    <div style={{ fontSize: 11, color: "#475569", marginBottom: 6 }}>{d.basis}</div>
+                    {d.trigger && <div style={{ fontSize: 11, fontStyle: "italic", color: "#64748b", marginBottom: 6 }}>{d.trigger}</div>}
+                    {d.fiveYearCumulativeImpact && (
+                      <div style={{ fontSize: 13, fontWeight: 700, color: d.fiveYearCumulativeImpact.startsWith("-") ? "#991b1b" : "#166534" }}>
+                        {d.fiveYearCumulativeImpact.startsWith("-") ? "▼ " : "▲ "}{d.fiveYearCumulativeImpact} <span style={{ fontSize: 10, fontWeight: 400, color: "#64748b" }}>vs base</span>
+                      </div>
+                    )}
+                    {d.probability && <div style={{ marginTop: 6, fontSize: 10, color: "#64748b", background: "#f1f5f9", padding: "2px 6px", borderRadius: 3, display: "inline-block" }}>{d.probability}</div>}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div style={{ textAlign: "center", padding: "16px 0" }}>
+                <div style={{ fontSize: 28, fontWeight: 700, color: "#166534", marginBottom: 4 }}>{uw.baseCase?.annualRentGrowth}%</div>
+                <div style={{ fontSize: 12, color: "#475569", marginBottom: 4 }}>{uw.baseCase?.basis}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>{uw.baseCase?.regulatoryAssumption}</div>
+                <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 8 }}>No material pending regulatory risk identified for the 5-year hold period</div>
+              </div>
+            )}
+            <div style={{ marginTop: 14, padding: "10px 14px", background: "#fffbeb", borderRadius: 4, borderLeft: "3px solid " + (uw.recommendation === "NO-GO" ? "#991b1b" : uw.recommendation === "CONDITIONAL" ? "#f59e0b" : "#10b981"), fontSize: 12, color: "#334155", lineHeight: 1.5 }}>
+              <span style={{ fontWeight: 700, marginRight: 6 }}>⚑</span>{uw.keyCondition}
+            </div>
+          </Card>
+        </>);
+      })()}
+
+      <Sec icon="⑨">Sources & Methodology</Sec>
       <Card>
         <FR label="Methodology">This tool normalizes the property address, extracts the ZIP Code and jurisdictional layers, enriches building characteristics, evaluates governing structure across overlapping layers, assesses age-based applicability, and synthesizes a final regulatory determination with investment implications — via live AI-powered web research.</FR>
         <FR label="Source Hierarchy">Primary sources prioritized where available: (1) Official government and code repositories, (2) Housing authority and rent board publications, (3) Legislative trackers, (4) Legal/policy analyses, (5) Secondary news sources for recent activity.</FR>

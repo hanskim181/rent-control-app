@@ -12,7 +12,7 @@ const SAMPLES = [
   "2116 4th Ave, Seattle, WA",
 ];
 
-const BASE = "http://localhost:3000";
+const BASE = "http://localhost:5001";
 const DELAY = 120; // seconds between each API call
 const TIMEOUT = 300000; // 5 minutes fetch timeout
 
